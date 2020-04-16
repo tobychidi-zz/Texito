@@ -71,15 +71,15 @@ body.sideBar-close {
   --sideBar-width: 0px;
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 570px) {
   body.sideBar-close {
-    --sideBar-width: 300px;
+    display: block;
   }
 }
 
-@media screen and (max-width: 570px) {
-  body.sideBar-close #sideBar ~ #main {
-    display: none;
+@media screen and (max-width: 790px) {
+  body.sideBar-close {
+    --sideBar-width: 300px;
   }
 }
 
@@ -90,8 +90,8 @@ body.sideBar-close #sideBar div {
 
 @media screen and (max-width: 790px) {
   body.sideBar-close #sideBar div {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
     visibility: visible;
   }
 }
@@ -153,8 +153,8 @@ body.sideBar-close #sideBar div {
 
 @media screen and (max-width: 790px) {
   #sideBar div.sideBar-child {
-    -webkit-transform: translateX(-20vw);
-            transform: translateX(-20vw);
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
     visibility: hidden;
   }
 }

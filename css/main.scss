@@ -89,15 +89,19 @@ body {
 body.sideBar-close {
     --sideBar-width: 0px;
 
+    @media screen and(max-width: $small-screen) {
+        display: block;
+    }
+
     @media screen and(max-width: $medium-screen) {
         --sideBar-width: 300px;
     }
 
     #sideBar {
         &~#main {
-            @media screen and(max-width: $small-screen) {
-                display: none
-            }
+            // @media screen and(max-width: $small-screen) {
+            //     // display: none;
+            // }
         }
 
         div {
@@ -105,7 +109,7 @@ body.sideBar-close {
 
             // font-size: 0px;
             @media screen and(max-width: $medium-screen) {
-                transform: translateX(0px);
+                transform: translateX(0);
                 visibility: visible;
             }
         }
@@ -155,7 +159,7 @@ body.sideBar-close {
         // margin: 5px 0;
 
         @media screen and(max-width: $medium-screen) {
-            transform: translateX(-20vw);
+            transform: translateX(-300px);
             visibility: hidden;
         }
 
