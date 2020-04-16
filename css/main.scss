@@ -675,8 +675,15 @@ article#aboutTexito.active {
                 display: none;
                 transition: background-color 100ms ease-out;
 
+                @media screen and(max-width: $medium-screen) {
+                    display: grid;
+                    filter: opacity(40%);
+                }
                 &:hover {
                     background-color: var(--color-lightest);
+                    @media screen and(max-width: $medium-screen) {
+                        filter: opacity(100%);
+                    }
                 }
 
                 img {

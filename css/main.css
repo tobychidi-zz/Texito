@@ -865,8 +865,24 @@ article#aboutTexito.active {
   transition: background-color 100ms ease-out;
 }
 
+@media screen and (max-width: 790px) {
+  #main #main-listComponent ul button.listItem-close {
+    display: -ms-grid;
+    display: grid;
+    -webkit-filter: opacity(40%);
+            filter: opacity(40%);
+  }
+}
+
 #main #main-listComponent ul button.listItem-close:hover {
   background-color: var(--color-lightest);
+}
+
+@media screen and (max-width: 790px) {
+  #main #main-listComponent ul button.listItem-close:hover {
+    -webkit-filter: opacity(100%);
+            filter: opacity(100%);
+  }
 }
 
 #main #main-listComponent ul button.listItem-close img {
