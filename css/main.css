@@ -832,6 +832,8 @@ article#aboutTexito.active {
   #main #main-listComponent ul li:hover button.listItem-close {
     -webkit-filter: opacity(100%);
             filter: opacity(100%);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
 }
 
@@ -868,8 +870,8 @@ article#aboutTexito.active {
           user-select: none;
   background: none;
   display: none;
-  -webkit-transition: background-color 100ms ease-out;
-  transition: background-color 100ms ease-out;
+  -webkit-transition: 100ms ease-out;
+  transition: 100ms ease-out;
 }
 
 @media screen and (max-width: 790px) {
@@ -878,6 +880,8 @@ article#aboutTexito.active {
     display: grid;
     -webkit-filter: opacity(40%);
             filter: opacity(40%);
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
   }
 }
 

@@ -660,6 +660,7 @@ article#aboutTexito.active {
 
                     @media screen and(max-width: $medium-screen) {
                         filter: opacity(100%);
+                        transform: scale(.9);
                     }
                 }
 
@@ -677,11 +678,12 @@ article#aboutTexito.active {
                 @include circle(30px);
                 background: none;
                 display: none;
-                transition: background-color 100ms ease-out;
+                transition: 100ms ease-out;
 
                 @media screen and(max-width: $medium-screen) {
                     display: grid;
                     filter: opacity(40%);
+                    transform: scale(.7);
                 }
                 &:hover {
                     background-color: var(--color-lightest);
