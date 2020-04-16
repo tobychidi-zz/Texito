@@ -22,6 +22,7 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
+  min-height: 480px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,6 +43,12 @@ body {
 @media screen and (max-width: 570px) {
   body {
     font-size: .98em;
+  }
+}
+
+@media screen and (max-height: 480px) {
+  body {
+    overflow-y: auto;
   }
 }
 
@@ -792,7 +799,7 @@ article#aboutTexito.active {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 #main #main-listComponent ul {

@@ -24,7 +24,7 @@ $settingsMargin: 15px;
 $medium-screen: 790px;
 $small-screen: 570px;
 $height-small: 560px;
-
+$short-screen: 480px;
 /*
         My Mixins
         */
@@ -49,13 +49,14 @@ body {
     padding: 0;
     width: 100vw;
     height: 100vh;
-    // min-height: 100vh;
+    min-height: 480px;
     display: flex;
     font-family: 'Segoe UI';
     font-size: 1.15em;
     color: #222;
     --sideBar-width: 300px;
     overflow: hidden;
+    // overflow-y: auto;
 
     // &:hover{
     //     --sideBar-width: 0px;
@@ -67,6 +68,9 @@ body {
 
     @media screen and(max-width: $small-screen) {
         font-size: .98em;
+    }
+    @media screen and(max-height: $short-screen) {
+        overflow-y: auto;
     }
 }
 
@@ -634,7 +638,7 @@ article#aboutTexito.active {
         border-radius: 40px;
         display: flex;
         justify-content: center;
-        overflow: auto;
+        overflow-y: auto;
 
         ul {
             list-style-type: none;
