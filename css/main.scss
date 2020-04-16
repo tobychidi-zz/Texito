@@ -98,6 +98,7 @@ body.sideBar-close {
     }
 
     #sideBar {
+        transition-delay: 0ms;
         &~#main {
             @media screen and(max-width: $small-screen) {
                 display: none;
@@ -111,11 +112,8 @@ body.sideBar-close {
             // font-size: 0px;
             @media screen and(max-width: $medium-screen) {
                 transform: translateX(0px);
-                display: initial;
+                visibility: visible;
             }
-        #themeBox{
-            display: grid;
-        }
         }
     }
 }
@@ -158,13 +156,13 @@ body.sideBar-close {
         // height: 30px;
         overflow: hidden;
         box-sizing: border-box;
-        transition: 400ms ease-out;
+        transition: 200ms ease-out;
         padding: 0 20px;
         // margin: 5px 0;
 
         @media screen and(max-width: $medium-screen) {
             transform: translateX(-50vw);
-            display: none;
+            visibility: hidden;
         }
 
         // @media screen and(max-height: $height-small) {

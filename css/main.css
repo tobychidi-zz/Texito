@@ -56,6 +56,11 @@ body.sideBar-close {
   }
 }
 
+body.sideBar-close #sideBar {
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+}
+
 @media screen and (max-width: 570px) {
   body.sideBar-close #sideBar ~ #main {
     display: none;
@@ -72,13 +77,8 @@ body.sideBar-close #sideBar div {
   body.sideBar-close #sideBar div {
     -webkit-transform: translateX(0px);
             transform: translateX(0px);
-    display: initial;
+    visibility: visible;
   }
-}
-
-body.sideBar-close #sideBar div #themeBox {
-  display: -ms-grid;
-  display: grid;
 }
 
 /*
@@ -131,8 +131,8 @@ body.sideBar-close #sideBar div #themeBox {
   overflow: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-transition: 400ms ease-out;
-  transition: 400ms ease-out;
+  -webkit-transition: 200ms ease-out;
+  transition: 200ms ease-out;
   padding: 0 20px;
 }
 
@@ -140,7 +140,7 @@ body.sideBar-close #sideBar div #themeBox {
   #sideBar div.sideBar-child {
     -webkit-transform: translateX(-50vw);
             transform: translateX(-50vw);
-    display: none;
+    visibility: hidden;
   }
 }
 
