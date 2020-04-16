@@ -778,7 +778,7 @@ article#aboutTexito.active {
   #main #main-logoSpot {
     position: -webkit-sticky;
     position: sticky;
-    top: -20px;
+    top: -40px;
     background-color: white;
     opacity: 1;
     width: 100%;
