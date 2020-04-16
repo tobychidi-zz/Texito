@@ -21,7 +21,6 @@ function clearActive(myButton, myInput) { //me is the active button and you is t
     myButton.classList.remove("active")
     myInput.classList.remove("active")
     focused = false;
-    restoreIcon(addText, "plus")
     alertUser(false)
 }
 
@@ -36,7 +35,6 @@ function stopActive(myButton, myInput) { //me is the active button and you is th
     myButton.classList.remove("active")
     myInput.classList.remove("active")
     focused = false;
-    restoreIcon(addText, "plus")
 }
 
 searchButton.onfocus = () => {
@@ -88,6 +86,7 @@ textButton.onfocus = () => {
 textButton.onblur = () => {
     if (focused != true) {
         clearActive(textButton, textInput)
+        restoreIcon(addText, "plus")
         inputReady = false;
     }
     blurred = false
@@ -111,6 +110,7 @@ textButton.onmouseleave = () => {
 
 textInput.onblur = () => {
     stopActive(textButton, textInput)
+    restoreIcon(addText, "plus")
     inputReady = false;
     if (champ == true) {
         blurred = true
