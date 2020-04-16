@@ -539,7 +539,7 @@ article#aboutTexito.active {
     /*control the position of this button and main so they can overlap*/
     align-self: center;
     z-index: 1;
-    transition: transform 400ms ease-out;
+    transition: transform 200ms ease-out;
     transform: rotate(180deg);
     position: absolute;
     top: calc(50vh - 30px);

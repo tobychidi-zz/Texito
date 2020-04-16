@@ -679,10 +679,10 @@ article#aboutTexito.active {
   -ms-grid-row-align: center;
       align-self: center;
   z-index: 1;
-  -webkit-transition: -webkit-transform 400ms ease-out;
-  transition: -webkit-transform 400ms ease-out;
-  transition: transform 400ms ease-out;
-  transition: transform 400ms ease-out, -webkit-transform 400ms ease-out;
+  -webkit-transition: -webkit-transform 200ms ease-out;
+  transition: -webkit-transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   position: absolute;
