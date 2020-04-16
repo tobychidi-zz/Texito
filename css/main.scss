@@ -606,6 +606,7 @@ article#aboutTexito.active {
         margin-left: auto;
         z-index: 0;
         overflow-y: auto;
+        margin-top: 30px;
     }
 
     #main-logoSpot {
@@ -617,7 +618,6 @@ article#aboutTexito.active {
         transition: 300ms ease-in;
 
         @media screen and(max-width: $small-screen) {
-            margin-top: 20px;
             position: sticky;
             top: -20px;
             background-color:white;
