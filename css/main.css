@@ -79,10 +79,7 @@ body.sideBar-close {
 
 @media screen and (max-width: 570px) {
   body.sideBar-close #sideBar ~ #main {
-    visibility: collapse;
-    opacity: 0;
-    -webkit-transition: visibility 0ms ease 0ms;
-    transition: visibility 0ms ease 0ms;
+    display: none;
   }
 }
 
@@ -777,15 +774,16 @@ article#aboutTexito.active {
 
 @media screen and (max-width: 570px) {
   #main {
-    min-width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    min-width: 100vw;
     margin-left: auto;
     z-index: 0;
     overflow-y: auto;
     margin-top: 30px;
-    visibility: visible;
-    opacity: 1;
-    -webkit-transition: visibility 0ms ease 300ms, opacity 0ms ease 300ms;
-    transition: visibility 0ms ease 300ms, opacity 0ms ease 300ms;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
@@ -836,6 +834,8 @@ article#aboutTexito.active {
       -ms-flex-pack: center;
           justify-content: center;
   overflow-y: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @media screen and (max-width: 570px) {
@@ -974,6 +974,7 @@ article#aboutTexito.active {
         -ms-flex-align: end;
             align-items: flex-end;
     bottom: 10px;
+    right: 5vw;
     padding: 5px;
     background-color: transparent;
   }
