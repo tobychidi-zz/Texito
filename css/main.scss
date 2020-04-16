@@ -25,6 +25,7 @@ $medium-screen: 790px;
 $small-screen: 570px;
 $height-small: 560px;
 $short-screen: 480px;
+
 /*
         My Mixins
         */
@@ -69,6 +70,7 @@ body {
     @media screen and(max-width: $small-screen) {
         font-size: .98em;
     }
+
     @media screen and(max-height: $short-screen) {
         // overflow-y: auto;
     }
@@ -111,6 +113,9 @@ body.sideBar-close {
                 transform: translateX(0px);
                 display: initial;
             }
+        #themeBox{
+            display: grid;
+        }
         }
     }
 }
@@ -174,464 +179,465 @@ body.sideBar-close {
             user-select: none;
         }
     }
+}
 
-    ul#recentSearch {
-        list-style-type: circle;
-        margin: 0;
-        padding: 0 25px;
-        height: 5em;
-        font-size: 0.8em;
+div#aboutSection {
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // width: 70%;
 
+        button {
+            @include circle(30px);
+            border-color: white;
+            background-color: var(--color);
 
-
-        li {
-            margin: 5px 5px;
-        }
-    }
-
-    div#themeBox {
-        display: grid;
-        height: 100px;
-        width: 90%;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 10px;
-        margin-bottom: $settingsMargin;
-
-        @media screen and(max-height: $height-small) {
-            gap: 5px;
-        }
-
-        label {
-            display: block;
-            padding: 3px;
-            border-radius: 10px;
-            box-sizing: border-box;
-            transition: 150ms ease-out;
-            border: solid 2px transparent;
 
             &:hover {
-                border: solid 2px rgba(255, 255, 255, 0.425);
+                background-color: var(--color-lighter);
+                border-color: transparent;
             }
 
-            input {
-                display: none;
-            }
-
-            span {
-                visibility: hidden;
-            }
-
-            span {
-                @include circle(20px);
-                background-color: rgb(40, 170, 40);
-
-                img {
-                    height: 10px;
-                    margin: auto;
-                }
+            img {
+                margin: auto;
+                width: 15px;
             }
         }
 
-        label.active {
-            border: solid 2px rgba(255, 255, 255, 0.767);
+        button.active {
+            background-color: white;
 
-            span {
-                visibility: visible;
+            img {
+                filter: invert(100%) opacity(80%);
             }
-        }
-
-        #red {
-            background-color: hsl(348, 70%, 40%);
-        }
-
-        #orange {
-            background-color: hsl(27, 78%, 42%);
-        }
-
-        #cyan {
-            background-color: hsl(147, 70%, 30%);
-        }
-
-        #purple {
-            background-color: hsl(300, 70%, 25%);
-        }
-
-        #blue {
-            background-color: hsl(204, 70%, 40%);
-        }
-
-        #dark {
-            background-color: #212121;
         }
     }
+}
 
-    div#rating {
-        display: flex;
-        flex-flow: column;
-        justify-content: center;
-        margin-bottom: $settingsMargin;
+ul#recentSearch {
+    list-style-type: circle;
+    margin: 0;
+    padding: 0 25px;
+    height: 5em;
+    font-size: 0.8em;
 
-        div#ratingBox {
-            font-size: .8em;
 
-            div#starsBox {
-                display: flex;
-                // width: 70%;
-                justify-content: space-around;
-                margin-bottom: 15px;
 
-                button {
-                    @include circle(30px);
-                    background-color: transparent;
-                    border-color: rgba(255, 255, 255, 0.055);
+    li {
+        margin: 5px 5px;
+    }
+}
 
-                    &:hover {
-                        border-color: rgba(255, 255, 255, 0.966);
-                    }
+div#themeBox {
+    display: grid;
+    height: 100px;
+    width: 90%;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: $settingsMargin;
 
-                    svg {
-                        display: block;
-                        height: 20px;
-                        width: 20px;
-                        fill: none;
-                        stroke-width: 3px;
-                        stroke: white;
-                        margin: auto;
-                        padding: 0;
-                    }
-                }
+    @media screen and(max-height: $height-small) {
+        gap: 5px;
+    }
 
-                button.checked {
-                    svg {
-                        fill: rgba(255, 255, 255, 0.932);
-                        stroke: none;
-                    }
-                }
-            }
+    label {
+        display: block;
+        padding: 3px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: 150ms ease-out;
+        border: solid 2px transparent;
 
-            form {
-                display: flex;
+        &:hover {
+            border: solid 2px rgba(255, 255, 255, 0.425);
+        }
 
-                input {
-                    all: unset;
-                    width: calc(100% - 45px);
-                    font-size: inherit;
-                    display: block;
-                    border: none;
-                    color: inherit;
-                    background-color: transparent;
-                    border-bottom: $objectBorder;
-                    border-color: rgba(255, 255, 255, 0.596);
-                    transition: 400ms ease-in;
+        input {
+            display: none;
+        }
 
-                    &::placeholder {
-                        color: rgba(255, 255, 255, 0.596);
-                    }
+        span {
+            visibility: hidden;
+        }
 
-                    &+button {
-                        margin-left: -20px;
-                    }
+        span {
+            @include circle(20px);
+            background-color: rgb(40, 170, 40);
 
-                    &:focus {
-                        border-color: rgba(255, 255, 255, 0.966);
-                        margin-right: 10px;
-
-                        &+button {
-                            margin-left: 0px;
-                            transform: rotate(1turn);
-                            background-color: white;
-                            border-color: transparent;
-
-                            img {
-                                filter: invert(0%) opacity(80%);
-                            }
-                        }
-                    }
-                }
-
-                button {
-                    @include circle(35px);
-
-                    border-color: white;
-                    background-color: var(--color);
-                    transition: 400ms ease-in;
-
-                    img {
-                        width: 15px;
-                        margin: auto;
-                        filter: invert(100%);
-                    }
-
-                    &:hover {
-                        background-color: var(--color-lighter) !important;
-
-                        img {
-                            filter: invert(100%) !important;
-                        }
-                    }
-                }
+            img {
+                height: 10px;
+                margin: auto;
             }
         }
     }
 
-    div#aboutSection {
-        label {
+    label.active {
+        border: solid 2px rgba(255, 255, 255, 0.767);
+
+        span {
+            visibility: visible;
+        }
+    }
+
+    #red {
+        background-color: hsl(348, 70%, 40%);
+    }
+
+    #orange {
+        background-color: hsl(27, 78%, 42%);
+    }
+
+    #cyan {
+        background-color: hsl(147, 70%, 30%);
+    }
+
+    #purple {
+        background-color: hsl(300, 70%, 25%);
+    }
+
+    #blue {
+        background-color: hsl(204, 70%, 40%);
+    }
+
+    #dark {
+        background-color: #212121;
+    }
+}
+
+div#rating {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-bottom: $settingsMargin;
+
+    div#ratingBox {
+        font-size: .8em;
+
+        div#starsBox {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
             // width: 70%;
+            justify-content: space-around;
+            margin-bottom: 15px;
 
             button {
                 @include circle(30px);
-                border-color: white;
-                background-color: var(--color);
-
+                background-color: transparent;
+                border-color: rgba(255, 255, 255, 0.055);
 
                 &:hover {
-                    background-color: var(--color-lighter);
-                    border-color: transparent;
+                    border-color: rgba(255, 255, 255, 0.966);
                 }
 
-                img {
+                svg {
+                    display: block;
+                    height: 20px;
+                    width: 20px;
+                    fill: none;
+                    stroke-width: 3px;
+                    stroke: white;
                     margin: auto;
-                    width: 15px;
+                    padding: 0;
                 }
             }
 
-            button.active {
-                background-color: white;
+            button.checked {
+                svg {
+                    fill: rgba(255, 255, 255, 0.932);
+                    stroke: none;
+                }
+            }
+        }
+
+        form {
+            display: flex;
+
+            input {
+                all: unset;
+                width: calc(100% - 45px);
+                font-size: inherit;
+                display: block;
+                border: none;
+                color: inherit;
+                background-color: transparent;
+                border-bottom: $objectBorder;
+                border-color: rgba(255, 255, 255, 0.596);
+                transition: 400ms ease-in;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.596);
+                }
+
+                &+button {
+                    margin-left: -20px;
+                }
+
+                &:focus {
+                    border-color: rgba(255, 255, 255, 0.966);
+                    margin-right: 10px;
+
+                    &+button {
+                        margin-left: 0px;
+                        transform: rotate(1turn);
+                        background-color: white;
+                        border-color: transparent;
+
+                        img {
+                            filter: invert(0%) opacity(80%);
+                        }
+                    }
+                }
+            }
+
+            button {
+                @include circle(35px);
+
+                border-color: white;
+                background-color: var(--color);
+                transition: 400ms ease-in;
 
                 img {
-                    filter: invert(100%) opacity(80%);
+                    width: 15px;
+                    margin: auto;
+                    filter: invert(100%);
+                }
+
+                &:hover {
+                    background-color: var(--color-lighter) !important;
+
+                    img {
+                        filter: invert(100%) !important;
+                    }
                 }
             }
         }
     }
 }
 
-span.bodyCover {
-    display: none;
-    width: 100vw;
-    height: 100vh;
-    background-color: #222;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 6;
-    filter: opacity(60%);
-}
-
-article#aboutTexito {
-    display: flex;
-    visibility: hidden;
-    flex-flow: column;
-    text-align: center;
-    align-items: center;
-    box-sizing: border-box;
-    overflow: hidden;
-    position: absolute;
-    width: 40vw;
-    min-width: 400px;
-    top: 25vh;
-    left: 40vw;
-    z-index: 7;
-    background-color: green;
-    background-color: rgba(255, 255, 255, 0.945);
-    border: $objectBorder;
-    border-radius: 30px;
-    color: #222;
-    transform: translateX(-50%) rotate(-100grad);
-    transform-origin: 0 100%;
-    transition: transform 500ms ease-out;
-
-    @media screen and(max-width: $medium-screen) {
-        min-width: 200px;
-        top: 15vh;
-        width: 70vw;
-        left: 15vw;
-        font-size: inherit;
+    span.bodyCover {
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        background-color: #222;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 6;
+        filter: opacity(60%);
     }
 
-    @media screen and(max-width: $small-screen) {
-        // max-width: 400px;
-        width: 90vw;
-        left: 5vw;
-        // font-size: .8em;
-    }
-
-
-
-    h3 {
-        color: white;
-        background-color: var(--color-lighter);
-        font-size: 1.25em;
-        margin: 0px;
-        padding: 20px 70px 15px 70px;
-        width: 100%;
+    article#aboutTexito {
+        display: flex;
+        visibility: hidden;
+        flex-flow: column;
+        text-align: center;
+        align-items: center;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: absolute;
+        width: 40vw;
+        min-width: 400px;
+        top: 25vh;
+        left: 40vw;
+        z-index: 7;
+        background-color: green;
+        background-color: rgba(255, 255, 255, 0.945);
         border: $objectBorder;
-    }
+        border-radius: 30px;
+        color: #222;
+        transform: translateX(-50%) rotate(-100grad);
+        transform-origin: 0 100%;
+        transition: transform 500ms ease-out;
 
-
-
-    p {
-        padding: 0 40px;
-        margin: 0;
-        margin-top: 20px;
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            height: 2px;
-            border-bottom: solid 4px var(--color-lightest);
-            margin-bottom: -5px;
+        @media screen and(max-width: $medium-screen) {
+            min-width: 200px;
+            top: 15vh;
+            width: 70vw;
+            left: 15vw;
+            font-size: inherit;
         }
-    }
 
-    button {
-        @include circle(40px);
-        background-color: transparent;
-        transition: 200ms ease-out;
-        margin-top: 20px;
-        margin-bottom: 40px;
+        @media screen and(max-width: $small-screen) {
+            // max-width: 400px;
+            width: 90vw;
+            left: 5vw;
+            // font-size: .8em;
+        }
 
-        img {
-            margin: auto;
-            width: 15px;
-            filter: opacity(80%);
+
+
+        h3 {
+            color: white;
+            background-color: var(--color-lighter);
+            font-size: 1.25em;
+            margin: 0px;
+            padding: 20px 70px 15px 70px;
+            width: 100%;
+            border: $objectBorder;
+        }
+
+
+
+        p {
+            padding: 0 40px;
+            margin: 0;
+            margin-top: 20px;
+
+            a {
+                color: inherit;
+                text-decoration: none;
+                height: 2px;
+                border-bottom: solid 4px var(--color-lightest);
+                margin-bottom: -5px;
+            }
+        }
+
+        button {
+            @include circle(40px);
+            background-color: transparent;
             transition: 200ms ease-out;
+            margin-top: 20px;
+            margin-bottom: 40px;
+
+            img {
+                margin: auto;
+                width: 15px;
+                filter: opacity(80%);
+                transition: 200ms ease-out;
+            }
+
+            &:hover {
+                background-color: var(--color-light);
+
+                img {
+                    filter: invert(100%);
+                }
+            }
         }
+
+
+    }
+
+    article#aboutTexito.active {
+        display: flex;
+        visibility: visible;
+
+        // transform: rotate(-100grad);
+        // transform: rotate(0grad);
+        transform: translateX(0vw) rotate(0grad);
+    }
+
+    #sideBar-control.active {
+        right: -40px;
+        transform: rotate(0);
+
+        @media screen and(max-width: $medium-screen) {
+            right: -30px;
+            transform: rotate(180deg);
+        }
+
+        @media screen and(max-width: $small-screen) {
+            right: -25px;
+        }
+    }
+
+    #sideBar-control {
+        @include circle(60px);
+        // margin-left: -30px;
+        /*control the position of this button and main so they can overlap*/
+        align-self: center;
+        z-index: 1;
+        transition: transform 400ms ease-out;
+        transform: rotate(180deg);
+        position: absolute;
+        top: calc(50vh - 30px);
+        right: -30px;
+
+        // transform-origin: center;
+
+        @media screen and(max-width: $medium-screen) {
+            right: -40px;
+            transform: rotate(0);
+        }
+
+        @media screen and(max-width: $small-screen) {
+            @include circle(50px);
+            right: -30px;
+        }
+
 
         &:hover {
             background-color: var(--color-light);
-
-            img {
-                filter: invert(100%);
-            }
-        }
-    }
-
-
-}
-
-article#aboutTexito.active {
-    display: flex;
-    visibility: visible;
-
-    // transform: rotate(-100grad);
-    // transform: rotate(0grad);
-    transform: translateX(0vw) rotate(0grad);
-}
-
-#sideBar-control.active {
-    right: -40px;
-    transform: rotate(0);
-
-    @media screen and(max-width: $medium-screen) {
-        right: -30px;
-        transform: rotate(180deg);
-    }
-
-    @media screen and(max-width: $small-screen) {
-        right: -25px;
-    }
-}
-
-#sideBar-control {
-    @include circle(60px);
-    // margin-left: -30px;
-    /*control the position of this button and main so they can overlap*/
-    align-self: center;
-    z-index: 1;
-    transition: transform 400ms ease-out;
-    transform: rotate(180deg);
-    position: absolute;
-    top: calc(50vh - 30px);
-    right: -30px;
-
-    // transform-origin: center;
-
-    @media screen and(max-width: $medium-screen) {
-        right: -40px;
-        transform: rotate(0);
-    }
-
-    @media screen and(max-width: $small-screen) {
-        @include circle(50px);
-        right: -30px;
-    }
-
-
-    &:hover {
-        background-color: var(--color-light);
-    }
-
-    img {
-        margin: auto;
-        display: block;
-        height: 18px;
-        user-select: none;
-
-        @media screen and(max-width: $medium-screen) {
-            height: 16px;
-        }
-
-        @media screen and(max-width: $small-screen) {
-            height: 12px;
-        }
-
-    }
-}
-
-
-
-
-#main {
-    width: calc(100% - var(--sideBar-width));
-    transition: width 400ms ease-out;
-    min-width: 65%;
-    margin-left: -30px;
-    /*control the position of this section and button*/
-    padding: 10px 50px 30px 50px;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
-    --titleHeight: 100px;
-
-    @media screen and(max-width: $medium-screen) {
-        min-width: 50%;
-    }
-
-    @media screen and(max-width: $small-screen) {
-        min-width: 100%;
-        margin-left: auto;
-        z-index: 0;
-        overflow-y: auto;
-        margin-top: 30px;
-    }
-
-    #main-logoSpot {
-        display: grid;
-        place-content: center;
-        box-sizing: border-box;
-        height: 100px;
-        height: var(--titleHeight);
-        transition: 300ms ease-in;
-
-        @media screen and(max-width: $small-screen) {
-            position: sticky;
-            top: -40px;
-            background-color:white;
-            opacity: 1;
-            width: 100%;
-            z-index: 2;
         }
 
         img {
             margin: auto;
-            height: 60px;
+            display: block;
+            height: 18px;
+            user-select: none;
+
+            @media screen and(max-width: $medium-screen) {
+                height: 16px;
+            }
 
             @media screen and(max-width: $small-screen) {
-                height: 40px;
+                height: 12px;
+            }
+
+        }
+    }
+
+
+
+
+    #main {
+        width: calc(100% - var(--sideBar-width));
+        transition: width 400ms ease-out;
+        min-width: 65%;
+        margin-left: -30px;
+        /*control the position of this section and button*/
+        padding: 10px 50px 30px 50px;
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: column;
+        --titleHeight: 100px;
+
+        @media screen and(max-width: $medium-screen) {
+            min-width: 50%;
+        }
+
+        @media screen and(max-width: $small-screen) {
+            min-width: 100%;
+            margin-left: auto;
+            z-index: 0;
+            overflow-y: auto;
+            margin-top: 30px;
+        }
+
+        #main-logoSpot {
+            display: grid;
+            place-content: center;
+            box-sizing: border-box;
+            height: 100px;
+            height: var(--titleHeight);
+            transition: 300ms ease-in;
+
+            @media screen and(max-width: $small-screen) {
+                position: sticky;
+                top: -40px;
+                background-color: white;
+                opacity: 1;
+                width: 100%;
+                z-index: 2;
+            }
+
+            img {
+                margin: auto;
+                height: 60px;
+
+                @media screen and(max-width: $small-screen) {
+                    height: 40px;
+                }
             }
         }
     }
@@ -649,6 +655,7 @@ article#aboutTexito.active {
         @media screen and(max-width: $small-screen) {
             overflow-y: initial;
         }
+
         ul {
             list-style-type: none;
             padding: 0;
@@ -698,6 +705,7 @@ article#aboutTexito.active {
                     filter: opacity(40%);
                     transform: scale(.7);
                 }
+
                 &:hover {
                     background-color: var(--color-lightest);
                 }
@@ -711,173 +719,172 @@ article#aboutTexito.active {
             }
         }
     }
-}
 
-#interactComponent {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    bottom: 60px;
-    right: 5vw;
-
-    @media screen and(max-width: $small-screen) {
-        flex-flow: column;
-        align-items: flex-end;
-        bottom: 10px;
-        padding: 5px;
-        background-color: transparent;
-    }
-
-    div {
+    #interactComponent {
         display: flex;
         align-items: center;
-    }
-
-    #alert {
-        display: none;
         justify-content: center;
-        font-size: 0.7em;
-        padding: 10px;
-        width: 112px;
-        box-sizing: border-box;
-        background-color: var(--color-lightest);
-        border-radius: 25px;
-        position: absolute;
-        bottom: 50px;
-        margin-right: 20px;
+        position: fixed;
+        bottom: 60px;
+        right: 5vw;
 
-        &::after {
-            content: '';
-            display: block;
+        @media screen and(max-width: $small-screen) {
+            flex-flow: column;
+            align-items: flex-end;
+            bottom: 10px;
+            padding: 5px;
+            background-color: transparent;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+        }
+
+        #alert {
+            display: none;
+            justify-content: center;
+            font-size: 0.7em;
+            padding: 10px;
+            width: 112px;
             box-sizing: border-box;
-            height: 15px;
-            width: 25px;
-            background-color: inherit;
-            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+            background-color: var(--color-lightest);
+            border-radius: 25px;
             position: absolute;
-            bottom: -10px;
-        }
-    }
+            bottom: 50px;
+            margin-right: 20px;
 
-    button {
-        @include circle(60px);
-        transition: 400ms ease-in, background-color 300ms ease-out;
-
-        @media screen and(max-width: $medium-screen) {
-            @include circle(50px)
-        }
-
-        img {
-            margin: auto;
-            width: 20px;
-            user-select: none;
-
-            @media screen and(max-width: $medium-screen) {
-                width: 15px;
+            &::after {
+                content: '';
+                display: block;
+                box-sizing: border-box;
+                height: 15px;
+                width: 25px;
+                background-color: inherit;
+                clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+                position: absolute;
+                bottom: -10px;
             }
         }
-    }
 
-    #textButton {
-        margin-right: 10px;
-        background-color: var(--color);
+        button {
+            @include circle(60px);
+            transition: 400ms ease-in, background-color 300ms ease-out;
 
-        @media screen and(max-width: $small-screen) {
-            margin-right: 0px;
-            margin-bottom: 5px;
+            @media screen and(max-width: $medium-screen) {
+                @include circle(50px)
+            }
+
+            img {
+                margin: auto;
+                width: 20px;
+                user-select: none;
+
+                @media screen and(max-width: $medium-screen) {
+                    width: 15px;
+                }
+            }
         }
 
-        &:hover {
-            --color: hsl(var(--hue), var(--sat), var(--lightd, 32%));
-            --lightd: calc(-10% + var(--light));
-        }
-    }
+        #textButton {
+            margin-right: 10px;
+            background-color: var(--color);
 
-    #searchButton {
-        background-color: var(--color-lighter);
+            @media screen and(max-width: $small-screen) {
+                margin-right: 0px;
+                margin-bottom: 5px;
+            }
 
-        &:hover {
-            --color-lighter: hsl(var(--hue), var(--sat), var(--lightererd, 52%));
-            --lightererd: calc(-20% + var(--lighterer));
-        }
-    }
-
-    input {
-        all: unset;
-        width: 40vw;
-        border-radius: 40px;
-        // border: 1px solid #222;
-        border: $objectBorder;
-        background-color: rgb(236, 236, 236);
-        margin-right: -40px;
-        box-sizing: border-box;
-        padding: 20px;
-        // padding-right: 50px;
-        height: 50px;
-        font-size: 0em;
-        font: inherit;
-        // display: none;
-        visibility: hidden;
-        max-width: 0px;
-        transition: 200ms ease;
-
-        @media screen and(max-width: $medium-screen) {
-            width: 60vw;
-            height: 40px;
+            &:hover {
+                --color: hsl(var(--hue), var(--sat), var(--lightd, 32%));
+                --lightd: calc(-10% + var(--light));
+            }
         }
 
-        @media screen and(max-width: $small-screen) {
-            width: 80vw;
-            margin-right: -30px;
-            // font-size: 0.8em;
+        #searchButton {
+            background-color: var(--color-lighter);
+
+            &:hover {
+                --color-lighter: hsl(var(--hue), var(--sat), var(--lightererd, 52%));
+                --lightererd: calc(-20% + var(--lighterer));
+            }
         }
 
-        &::selection {
-            background: var(--color-lighter);
-            color: white;
-        }
-    }
+        input {
+            all: unset;
+            width: 40vw;
+            border-radius: 40px;
+            // border: 1px solid #222;
+            border: $objectBorder;
+            background-color: rgb(236, 236, 236);
+            margin-right: -40px;
+            box-sizing: border-box;
+            padding: 20px;
+            // padding-right: 50px;
+            height: 50px;
+            font-size: 0em;
+            font: inherit;
+            // display: none;
+            visibility: hidden;
+            max-width: 0px;
+            transition: 200ms ease;
 
-    /*
+            @media screen and(max-width: $medium-screen) {
+                width: 60vw;
+                height: 40px;
+            }
+
+            @media screen and(max-width: $small-screen) {
+                width: 80vw;
+                margin-right: -30px;
+                // font-size: 0.8em;
+            }
+
+            &::selection {
+                background: var(--color-lighter);
+                color: white;
+            }
+        }
+
+        /*
         Interactivity Control
         */
-    button.active {
-        $mycolor: green;
-        background-color: $mycolor !important;
+        button.active {
+            $mycolor: green;
+            background-color: $mycolor !important;
 
-        &:hover {
-            background-color: darken($mycolor, 10%) !important;
-        }
-    }
-
-    button.open {
-        $mycolor: #222;
-        background-color: $mycolor !important;
-
-        &:hover {
-            background-color: darken($mycolor, 15%) !important;
+            &:hover {
+                background-color: darken($mycolor, 10%) !important;
+            }
         }
 
-        img {
-            width: 16px;
+        button.open {
+            $mycolor: #222;
+            background-color: $mycolor !important;
 
-            @media screen and(max-width: $medium-screen) {
-                width: 13px;
+            &:hover {
+                background-color: darken($mycolor, 15%) !important;
             }
 
-            // filter: brightness(0%);
+            img {
+                width: 16px;
+
+                @media screen and(max-width: $medium-screen) {
+                    width: 13px;
+                }
+
+                // filter: brightness(0%);
+            }
+        }
+
+        input.active {
+            visibility: visible;
+            max-width: 500px;
+            font-size: 1em;
+            padding-right: 50px;
+
+            @media screen and(max-width: $small-screen) {
+                padding-right: 40px;
+            }
         }
     }
-
-    input.active {
-        visibility: visible;
-        max-width: 500px;
-        font-size: 1em;
-        padding-right: 50px;
-
-        @media screen and(max-width: $small-screen) {
-            padding-right: 40px;
-        }
-    }
-}
