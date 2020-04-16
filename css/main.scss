@@ -121,7 +121,7 @@ body.sideBar-close {
     width: 35%;
     max-width: var(--sideBar-width);
     background-color: var(--color);
-    transition: 400ms ease;
+    transition: 300ms ease-in;
     border-right: $objectBorder;
     box-sizing: border-box;
     color: white;
@@ -155,7 +155,7 @@ body.sideBar-close {
         // margin: 5px 0;
 
         @media screen and(max-width: $medium-screen) {
-            transform: translateX(-50vw);
+            transform: translateX(-20vw);
             visibility: hidden;
         }
 
