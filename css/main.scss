@@ -70,7 +70,7 @@ body {
         font-size: .98em;
     }
     @media screen and(max-height: $short-screen) {
-        overflow-y: auto;
+        // overflow-y: auto;
     }
 }
 
@@ -172,10 +172,6 @@ body.sideBar-close {
             white-space: nowrap;
             margin: 10px 0;
             user-select: none;
-
-            @media screen and(max-width: $small-screen) {
-                // font-size: 1em;
-            }
         }
     }
 
@@ -607,9 +603,9 @@ article#aboutTexito.active {
 
     @media screen and(max-width: $small-screen) {
         min-width: 100%;
-        position: absolute;
-        right: 0;
+        margin-left: auto;
         z-index: 0;
+        overflow-y: auto;
     }
 
     #main-logoSpot {
@@ -618,7 +614,16 @@ article#aboutTexito.active {
         box-sizing: border-box;
         height: 100px;
         height: var(--titleHeight);
+        transition: 300ms ease-in;
 
+        @media screen and(max-width: $small-screen) {
+            position: sticky;
+            top: -20px;
+            background-color:white;
+            opacity: 1;
+            width: 100%;
+            z-index: 2;
+        }
 
         img {
             margin: auto;
@@ -640,6 +645,9 @@ article#aboutTexito.active {
         justify-content: center;
         overflow-y: auto;
 
+        @media screen and(max-width: $small-screen) {
+            overflow-y: initial;
+        }
         ul {
             list-style-type: none;
             padding: 0;

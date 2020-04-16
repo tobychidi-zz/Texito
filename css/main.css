@@ -46,12 +46,6 @@ body {
   }
 }
 
-@media screen and (max-height: 480px) {
-  body {
-    overflow-y: auto;
-  }
-}
-
 body.sideBar-close {
   --sideBar-width: 0px;
 }
@@ -761,9 +755,9 @@ article#aboutTexito.active {
 @media screen and (max-width: 570px) {
   #main {
     min-width: 100%;
-    position: absolute;
-    right: 0;
+    margin-left: auto;
     z-index: 0;
+    overflow-y: auto;
   }
 }
 
@@ -775,6 +769,20 @@ article#aboutTexito.active {
           box-sizing: border-box;
   height: 100px;
   height: var(--titleHeight);
+  -webkit-transition: 300ms ease-in;
+  transition: 300ms ease-in;
+}
+
+@media screen and (max-width: 570px) {
+  #main #main-logoSpot {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -20px;
+    background-color: white;
+    opacity: 1;
+    width: 100%;
+    z-index: 2;
+  }
 }
 
 #main #main-logoSpot img {
@@ -800,6 +808,12 @@ article#aboutTexito.active {
       -ms-flex-pack: center;
           justify-content: center;
   overflow-y: auto;
+}
+
+@media screen and (max-width: 570px) {
+  #main #main-listComponent {
+    overflow-y: initial;
+  }
 }
 
 #main #main-listComponent ul {
