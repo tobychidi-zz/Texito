@@ -46,6 +46,27 @@ body {
   }
 }
 
+@-webkit-keyframes display {
+  0% {
+    display: none;
+  }
+  100% {
+    display: -webkit-box;
+    display: flex;
+  }
+}
+
+@keyframes display {
+  0% {
+    display: none;
+  }
+  100% {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 body.sideBar-close {
   --sideBar-width: 0px;
 }
@@ -56,15 +77,12 @@ body.sideBar-close {
   }
 }
 
-body.sideBar-close #sideBar {
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-}
-
 @media screen and (max-width: 570px) {
   body.sideBar-close #sideBar ~ #main {
-    display: none;
-    visibility: hidden;
+    visibility: collapse;
+    opacity: 0;
+    -webkit-transition: visibility 0ms ease 0ms;
+    transition: visibility 0ms ease 0ms;
   }
 }
 
@@ -89,8 +107,8 @@ body.sideBar-close #sideBar div {
   width: 35%;
   max-width: var(--sideBar-width);
   background-color: var(--color);
-  -webkit-transition: 400ms ease-out;
-  transition: 400ms ease-out;
+  -webkit-transition: 400ms ease;
+  transition: 400ms ease;
   border-right: solid 1px rgba(39, 39, 39, 0.096);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -131,8 +149,8 @@ body.sideBar-close #sideBar div {
   overflow: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-transition: 200ms ease-out;
-  transition: 200ms ease-out;
+  -webkit-transition: 200ms ease-in;
+  transition: 200ms ease-in;
   padding: 0 20px;
 }
 
@@ -764,6 +782,10 @@ article#aboutTexito.active {
     z-index: 0;
     overflow-y: auto;
     margin-top: 30px;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: visibility 0ms ease 300ms, opacity 0ms ease 300ms;
+    transition: visibility 0ms ease 300ms, opacity 0ms ease 300ms;
   }
 }
 

@@ -76,20 +76,14 @@ body {
     }
 }
 
-// @keyframes bounce{
-//     0%{
-//         max-width: 0px;
-//     }
-//     30%{
-//         max-width: 20px;
-//     }
-//     70%{
-//         max-width: 0px;
-//     }
-//     100%{
-//         max-width: 0px;
-//     }
-// }
+@keyframes display{
+    0%{
+        display: none;
+    }
+    100%{
+        display: flex;
+    }
+}
 body.sideBar-close {
     --sideBar-width: 0px;
 
@@ -98,11 +92,11 @@ body.sideBar-close {
     }
 
     #sideBar {
-        transition-delay: 0ms;
         &~#main {
             @media screen and(max-width: $small-screen) {
-                display: none;
-                visibility: hidden;
+                visibility: collapse;
+                opacity: 0;
+                transition: visibility 0ms ease 0ms;
             }
         }
 
@@ -127,7 +121,7 @@ body.sideBar-close {
     width: 35%;
     max-width: var(--sideBar-width);
     background-color: var(--color);
-    transition: 400ms ease-out;
+    transition: 400ms ease;
     border-right: $objectBorder;
     box-sizing: border-box;
     color: white;
@@ -156,7 +150,7 @@ body.sideBar-close {
         // height: 30px;
         overflow: hidden;
         box-sizing: border-box;
-        transition: 200ms ease-out;
+        transition: 200ms ease-in;
         padding: 0 20px;
         // margin: 5px 0;
 
@@ -610,6 +604,10 @@ div#rating {
             z-index: 0;
             overflow-y: auto;
             margin-top: 30px;
+            visibility: visible;
+            opacity: 1;
+            transition: visibility 0ms ease 300ms, opacity 0ms ease 300ms;
+            // transition: visibilty 400ms ease-out;
         }
 
         #main-logoSpot {
