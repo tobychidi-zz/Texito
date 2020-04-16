@@ -50,7 +50,7 @@ searchButton.onblur = () => {
 searchInput.onfocus = () => {
     keepActive(searchButton, searchInput)
     sfocused = true
-    searchInput.select()
+    // searchInput.select()
     sblurred = true
 }
 
@@ -97,7 +97,7 @@ textInput.onfocus = () => {
     keepActive(textButton, textInput)
     changeIt()
     blurred = true
-    textInput.select()
+    // textInput.select()
 }
 
 textButton.onmouseenter = () => {
