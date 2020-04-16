@@ -657,6 +657,10 @@ article#aboutTexito.active {
 
                 &:hover button.listItem-close {
                     display: grid;
+
+                    @media screen and(max-width: $medium-screen) {
+                        filter: opacity(100%);
+                    }
                 }
 
                 p {
@@ -681,9 +685,6 @@ article#aboutTexito.active {
                 }
                 &:hover {
                     background-color: var(--color-lightest);
-                    @media screen and(max-width: $medium-screen) {
-                        filter: opacity(100%);
-                    }
                 }
 
                 img {

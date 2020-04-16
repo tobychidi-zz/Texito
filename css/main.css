@@ -828,6 +828,13 @@ article#aboutTexito.active {
   display: grid;
 }
 
+@media screen and (max-width: 790px) {
+  #main #main-listComponent ul li:hover button.listItem-close {
+    -webkit-filter: opacity(100%);
+            filter: opacity(100%);
+  }
+}
+
 #main #main-listComponent ul li p {
   width: 90%;
 }
@@ -876,13 +883,6 @@ article#aboutTexito.active {
 
 #main #main-listComponent ul button.listItem-close:hover {
   background-color: var(--color-lightest);
-}
-
-@media screen and (max-width: 790px) {
-  #main #main-listComponent ul button.listItem-close:hover {
-    -webkit-filter: opacity(100%);
-            filter: opacity(100%);
-  }
 }
 
 #main #main-listComponent ul button.listItem-close img {
