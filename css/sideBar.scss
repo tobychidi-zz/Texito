@@ -19,7 +19,7 @@
     width: 90%;
     overflow: hidden;
     box-sizing: border-box;
-    transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms;
+    transition: transform 600ms ease-out, opacity 400ms ease-in 50ms;
     padding: 0 20px;
 
     @media screen and(max-width: $small-screen) {
@@ -49,7 +49,7 @@ body.sideBar-close {
 
         @media screen and(max-width: $small-screen) {
             transform: translateX(0);
-            transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms;
+            transition: transform 600ms ease-out, opacity 400ms ease-in 50ms;
             visibility: visible;
             opacity: 1;
         }
