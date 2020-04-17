@@ -72,8 +72,30 @@ body {
   overflow: hidden;
 }
 
+@media screen and (max-width: 570px) {
+  body {
+    --sideBar-width: 0px;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  body {
+    overflow-y: scroll;
+    max-height: 450px;
+  }
+}
+
 body.sideBar-close {
   --sideBar-width: 0px;
+}
+
+@media screen and (max-width: 570px) {
+  body.sideBar-close {
+    --sideBar-width: 300px;
+  }
+  body.sideBar-close #main, body.sideBar-close #interactComponent {
+    visibility: hidden;
+  }
 }
 
 #sideBar {
@@ -129,6 +151,14 @@ body.sideBar-close {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   border-right: solid 1px rgba(39, 39, 39, 0.116);
+  min-height: 450px;
+}
+
+@media screen and (max-height: 450px) {
+  #sideBar {
+    display: block;
+    position: absolute;
+  }
 }
 
 .sideBar-child {
@@ -141,6 +171,17 @@ body.sideBar-close {
   transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms;
   transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out 150ms;
   padding: 0 20px;
+}
+
+@media screen and (max-width: 570px) {
+  .sideBar-child {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition-delay: 0ms;
+            transition-delay: 0ms;
+  }
 }
 
 .sideBar-child h3 {
@@ -161,6 +202,19 @@ body.sideBar-close div.sideBar-child {
   opacity: 0;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
+}
+
+@media screen and (max-width: 570px) {
+  body.sideBar-close div.sideBar-child {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-transition: opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out 150ms;
+    transition: opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out 150ms;
+    transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms;
+    transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out 150ms;
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 #recentSearch {
@@ -496,6 +550,14 @@ body.sideBar-close div.sideBar-child {
           transform: rotate(0);
 }
 
+@media screen and (max-width: 570px) {
+  #sideBar-control.active {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    right: -30px;
+  }
+}
+
 #sideBar-control {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -520,6 +582,14 @@ body.sideBar-close div.sideBar-child {
   position: absolute;
   top: calc(50vh - 30px);
   right: -30px;
+}
+
+@media screen and (max-width: 570px) {
+  #sideBar-control {
+    right: -40px;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
 }
 
 #sideBar-control:hover {

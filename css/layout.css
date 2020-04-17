@@ -7,8 +7,30 @@ body {
   overflow: hidden;
 }
 
+@media screen and (max-width: 570px) {
+  body {
+    --sideBar-width: 0px;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  body {
+    overflow-y: scroll;
+    max-height: 450px;
+  }
+}
+
 body.sideBar-close {
   --sideBar-width: 0px;
+}
+
+@media screen and (max-width: 570px) {
+  body.sideBar-close {
+    --sideBar-width: 300px;
+  }
+  body.sideBar-close #main, body.sideBar-close #interactComponent {
+    visibility: hidden;
+  }
 }
 
 #sideBar {

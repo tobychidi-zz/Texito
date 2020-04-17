@@ -81,7 +81,7 @@
 #main-listComponent ul li {
   height: 45px;
   margin-bottom: 10px;
-  border-bottom: solid 1px rgba(39, 39, 39, 0.651);
+  border-bottom: solid 1px rgba(39, 39, 39, 0.116);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -134,7 +134,7 @@
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.651);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;

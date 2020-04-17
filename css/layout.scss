@@ -4,10 +4,26 @@ body{
     width: 100vw;
     --sideBar-width: 300px;
     overflow: hidden;
+
+    @media screen and(max-width: $small-screen) {
+        --sideBar-width: 0px;
+    }
+    @media screen and(max-height: $tiny-screen) {
+        overflow-y: scroll;
+        max-height: $tiny-screen;
+    }
 }
 
 body.sideBar-close{
     --sideBar-width: 0px;
+
+    @media screen and(max-width: $small-screen) {
+        --sideBar-width: 300px;
+
+        #main, #interactComponent{
+            visibility: hidden;
+        }
+    }
 }
 
 

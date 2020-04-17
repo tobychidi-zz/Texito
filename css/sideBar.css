@@ -13,7 +13,15 @@
           flex-flow: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  border-right: solid 1px rgba(39, 39, 39, 0.651);
+  border-right: solid 1px rgba(39, 39, 39, 0.116);
+  min-height: 450px;
+}
+
+@media screen and (max-height: 450px) {
+  #sideBar {
+    display: block;
+    position: absolute;
+  }
 }
 
 .sideBar-child {
@@ -26,6 +34,17 @@
   transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms;
   transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out 150ms;
   padding: 0 20px;
+}
+
+@media screen and (max-width: 570px) {
+  .sideBar-child {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition-delay: 0ms;
+            transition-delay: 0ms;
+  }
 }
 
 .sideBar-child h3 {
@@ -46,6 +65,19 @@ body.sideBar-close div.sideBar-child {
   opacity: 0;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
+}
+
+@media screen and (max-width: 570px) {
+  body.sideBar-close div.sideBar-child {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-transition: opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out 150ms;
+    transition: opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out 150ms;
+    transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms;
+    transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out 150ms;
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 #recentSearch {
@@ -107,7 +139,7 @@ body.sideBar-close div.sideBar-child {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.651);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -190,7 +222,7 @@ body.sideBar-close div.sideBar-child {
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.651);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -237,7 +269,7 @@ body.sideBar-close div.sideBar-child {
   border: none;
   color: inherit;
   background-color: transparent;
-  border-bottom: solid 1px rgba(39, 39, 39, 0.651);
+  border-bottom: solid 1px rgba(39, 39, 39, 0.116);
   border-color: rgba(255, 255, 255, 0.596);
   -webkit-transition: 400ms ease-in;
   transition: 400ms ease-in;
@@ -289,7 +321,7 @@ body.sideBar-close div.sideBar-child {
   height: 35px;
   width: 35px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.651);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -340,7 +372,7 @@ body.sideBar-close div.sideBar-child {
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.651);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -381,6 +413,14 @@ body.sideBar-close div.sideBar-child {
           transform: rotate(0);
 }
 
+@media screen and (max-width: 570px) {
+  #sideBar-control.active {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    right: -30px;
+  }
+}
+
 #sideBar-control {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -389,7 +429,7 @@ body.sideBar-close div.sideBar-child {
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.651);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -405,6 +445,14 @@ body.sideBar-close div.sideBar-child {
   position: absolute;
   top: calc(50vh - 30px);
   right: -30px;
+}
+
+@media screen and (max-width: 570px) {
+  #sideBar-control {
+    right: -40px;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
 }
 
 #sideBar-control:hover {

@@ -7,6 +7,12 @@
     flex-flow: column;
     justify-content: space-around;
     border-right: $objectBorder;
+    min-height: $tiny-screen;
+
+    @media screen and(max-height: $tiny-screen) {
+        display: block;
+        position: absolute;
+    }
 }
 
 .sideBar-child {
@@ -15,6 +21,13 @@
     box-sizing: border-box;
     transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms;
     padding: 0 20px;
+
+    @media screen and(max-width: $small-screen) {
+        transform: translateX(-200%);
+        visibility: hidden;
+        opacity: 0;
+        transition-delay: 0ms;
+    }
 
     h3 {
         font-weight: normal;
@@ -25,13 +38,20 @@
     }
 }
 
-body.sideBar-close{
+body.sideBar-close {
 
-    div.sideBar-child{
+    div.sideBar-child {
         transform: translateX(-200%);
         visibility: hidden;
         opacity: 0;
         transition-delay: 0ms;
+
+        @media screen and(max-width: $small-screen) {
+            transform: translateX(0);
+            transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms;
+            visibility: visible;
+            opacity: 1;
+        }
     }
 }
 
@@ -273,6 +293,11 @@ body.sideBar-close{
 #sideBar-control.active {
     right: -40px;
     transform: rotate(0);
+
+    @media screen and(max-width: $small-screen) {
+        transform: rotate(180deg);
+        right: -30px;
+    }
 }
 
 #sideBar-control {
@@ -282,6 +307,11 @@ body.sideBar-close{
     position: absolute;
     top: calc(50vh - 30px);
     right: -30px;
+
+    @media screen and(max-width: $small-screen) {
+        right: -40px;
+        transform: rotate(0);
+    }
 
     &:hover {
         background-color: var(--color-light);
