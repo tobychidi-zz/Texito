@@ -29,10 +29,10 @@
   overflow: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-transition: opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out;
-  transition: opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out;
-  transition: transform 600ms ease-out, opacity 400ms ease-in 50ms;
-  transition: transform 600ms ease-out, opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out;
+  -webkit-transition: opacity 300ms ease-in 50ms, -webkit-transform 400ms ease-out;
+  transition: opacity 300ms ease-in 50ms, -webkit-transform 400ms ease-out;
+  transition: transform 400ms ease-out, opacity 300ms ease-in 50ms;
+  transition: transform 400ms ease-out, opacity 300ms ease-in 50ms, -webkit-transform 400ms ease-out;
   padding: 0 20px;
 }
 
@@ -72,10 +72,10 @@ body.sideBar-close div.sideBar-child {
   body.sideBar-close div.sideBar-child {
     -webkit-transform: translateX(0);
             transform: translateX(0);
-    -webkit-transition: opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out;
-    transition: opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out;
-    transition: transform 600ms ease-out, opacity 400ms ease-in 50ms;
-    transition: transform 600ms ease-out, opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out;
+    -webkit-transition: opacity 300ms ease-in 50ms, -webkit-transform 400ms ease-out;
+    transition: opacity 300ms ease-in 50ms, -webkit-transform 400ms ease-out;
+    transition: transform 400ms ease-out, opacity 300ms ease-in 50ms;
+    transition: transform 400ms ease-out, opacity 300ms ease-in 50ms, -webkit-transform 400ms ease-out;
     visibility: visible;
     opacity: 1;
   }
