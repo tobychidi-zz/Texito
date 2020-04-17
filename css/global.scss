@@ -1,0 +1,78 @@
+@import "mixins";
+/*=======================
+        Custom Properties
+    ======================*/
+
+:root {
+    --hue: 348;
+    --sat: 70%;
+    --light: 40%;
+
+    --lighter: calc(10% + var(--light));
+    --lighterer: calc(10% + var(--lighter));
+    --lighterest: calc(10% + var(--lighterer));
+
+    --color: hsl(var(--hue), var(--sat), var(--light));
+    --color-light: hsl(var(--hue), var(--sat), var(--lighter));
+    --color-lighter: hsl(var(--hue), var(--sat), var(--lighterer));
+    --color-lightest: hsl(var(--hue), var(--sat), var(--lighterest));
+}
+
+
+/*=======================
+        Scss variables
+    ======================*/
+
+
+    
+/*=======================
+        Global Resets
+    ======================*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    font-family: 'Segoe UI';
+    font-size: 1.15em;
+    color: #222;
+}
+
+/*=======================
+        Grouped transitions
+    ======================*/
+
+#sideBar, #sideBar-control, #main{
+    transition: 400ms ease-out;
+}
+
+
+/*=======================
+        RESPONSIVE FONTS
+    ======================*/
+
+
+body{
+    @media screen and(max-width: $medium-screen) {
+        font-size: 1em;
+    }
+    @media screen and(max-width: $small-screen) {
+        overflow-y: .9em;
+    }
+}
+
+
+
+
+
+/*=======================
+        Imports
+    ======================*/
+@import "layout";
+@import "sideBar";
+@import "list";
+@import "extras";

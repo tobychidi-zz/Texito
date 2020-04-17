@@ -1,0 +1,398 @@
+/*=======================
+        MIxins
+    ======================*/
+/*=======================
+        ABOUT SECTION
+    ======================*/
+#aboutTexito {
+  width: 40vw;
+  min-width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: rgba(255, 255, 255, 0.945);
+  border: solid 1px rgba(39, 39, 39, 0.116);
+  border-radius: 30px;
+  -webkit-transform: translateX(-50%) rotate(-100grad);
+          transform: translateX(-50%) rotate(-100grad);
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transition: -webkit-transform 500ms ease-out;
+  transition: -webkit-transform 500ms ease-out;
+  transition: transform 500ms ease-out;
+  transition: transform 500ms ease-out, -webkit-transform 500ms ease-out;
+  -webkit-box-shadow: 0px 0px 4px 4px rgba(36, 36, 36, 0.082), 0px 0px 20px 10px rgba(66, 66, 66, 0.13);
+          box-shadow: 0px 0px 4px 4px rgba(36, 36, 36, 0.082), 0px 0px 20px 10px rgba(66, 66, 66, 0.13);
+}
+
+@media screen and (max-width: 570px) {
+  #aboutTexito {
+    min-width: calc(80vw);
+  }
+}
+
+#aboutTexito h3 {
+  color: white;
+  background-image: linear-gradient(135deg, #f39c18, var(--color-light) 30%, #f39c18, #c20e2c);
+  background-size: 150%;
+  background-position: center;
+  background-color: var(--color-lighter);
+  font-size: 1.25em;
+  margin: 0px;
+  padding: 20px 70px 15px 70px;
+  width: 100%;
+  border: solid 1px rgba(39, 39, 39, 0.116);
+}
+
+#aboutTexito p {
+  padding: 0 40px;
+  margin: 0;
+  margin-top: 20px;
+}
+
+#aboutTexito p a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--color);
+  text-decoration: none;
+}
+
+#aboutTexito p a:hover {
+  color: #222;
+}
+
+#aboutTexito p a::after {
+  content: "";
+  display: inline-block;
+  max-width: 0;
+  height: 4px;
+  width: 100%;
+  background-color: var(--color-lightest);
+  margin-top: -5px;
+  z-index: -1;
+  opacity: .7;
+  border-radius: 3px;
+  -webkit-transition: 200ms ease-out;
+  transition: 200ms ease-out;
+}
+
+#aboutTexito p a:hover::after {
+  max-width: 100%;
+}
+
+#aboutTexito button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  background-color: var(--color-lighter);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: solid 1px rgba(39, 39, 39, 0.116);
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  outline: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: transparent;
+  -webkit-transition: 200ms ease-out;
+  transition: 200ms ease-out;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+#aboutTexito button img {
+  margin: auto;
+  width: 15px;
+  -webkit-filter: opacity(80%);
+          filter: opacity(80%);
+  -webkit-transition: 200ms ease-out;
+  transition: 200ms ease-out;
+}
+
+#aboutTexito button:hover {
+  background-color: var(--color-light);
+}
+
+#aboutTexito button:hover img {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+#aboutTexito.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
+  -webkit-transform: translate(-50%, -50%) rotate(0grad);
+          transform: translate(-50%, -50%) rotate(0grad);
+}
+
+/*=======================
+    INTERACTIVE BUTTONS  
+    ======================*/
+#interactComponent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  bottom: 60px;
+  right: 5vw;
+  /*
+            Interactivity Control
+            */
+}
+
+@media screen and (max-width: 570px) {
+  #interactComponent {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    bottom: 10px;
+    right: 5vw;
+    padding: 5px;
+    background-color: transparent;
+  }
+}
+
+#interactComponent div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#interactComponent #alert {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 0.7em;
+  padding: 10px;
+  width: 112px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: var(--color-lightest);
+  border-radius: 25px;
+  position: absolute;
+  bottom: 50px;
+  margin-right: 20px;
+}
+
+#interactComponent #alert::after {
+  content: '';
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 15px;
+  width: 25px;
+  background-color: inherit;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+          clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  position: absolute;
+  bottom: -10px;
+}
+
+#interactComponent button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  background-color: var(--color-lighter);
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: solid 1px rgba(39, 39, 39, 0.116);
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  outline: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: 400ms ease-in, background-color 300ms ease-out;
+  transition: 400ms ease-in, background-color 300ms ease-out;
+}
+
+@media screen and (max-width: 960px) {
+  #interactComponent button {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0;
+    background-color: var(--color-lighter);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: solid 1px rgba(39, 39, 39, 0.116);
+    display: -ms-grid;
+    display: grid;
+    place-content: center;
+    outline: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+}
+
+#interactComponent button img {
+  margin: auto;
+  width: 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+@media screen and (max-width: 960px) {
+  #interactComponent button img {
+    width: 15px;
+  }
+}
+
+#interactComponent #textButton {
+  margin-right: 10px;
+  background-color: var(--color);
+}
+
+@media screen and (max-width: 570px) {
+  #interactComponent #textButton {
+    margin-right: 0px;
+    margin-bottom: 5px;
+  }
+}
+
+#interactComponent #textButton:hover {
+  --color: hsl(var(--hue), var(--sat), var(--lightd, 32%));
+  --lightd: calc(-10% + var(--light));
+}
+
+#interactComponent #searchButton {
+  background-color: var(--color-lighter);
+}
+
+#interactComponent #searchButton:hover {
+  --color-lighter: hsl(var(--hue), var(--sat), var(--lightererd, 52%));
+  --lightererd: calc(-20% + var(--lighterer));
+}
+
+#interactComponent input {
+  all: unset;
+  width: 40vw;
+  border-radius: 40px;
+  border: solid 1px rgba(39, 39, 39, 0.116);
+  background-color: #ececec;
+  margin-right: -40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px;
+  height: 50px;
+  font-size: 0em;
+  font: inherit;
+  visibility: hidden;
+  max-width: 0px;
+  -webkit-transition: 200ms ease;
+  transition: 200ms ease;
+}
+
+@media screen and (max-width: 960px) {
+  #interactComponent input {
+    width: 60vw;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  #interactComponent input {
+    width: 80vw;
+    margin-right: -30px;
+  }
+}
+
+#interactComponent input::-moz-selection {
+  background: var(--color-lighter);
+  color: white;
+}
+
+#interactComponent input::selection {
+  background: var(--color-lighter);
+  color: white;
+}
+
+#interactComponent button.active {
+  background-color: green !important;
+}
+
+#interactComponent button.active:hover {
+  background-color: #004d00 !important;
+}
+
+#interactComponent button.open {
+  background-color: #222 !important;
+}
+
+#interactComponent button.open:hover {
+  background-color: black !important;
+}
+
+#interactComponent button.open img {
+  width: 16px;
+}
+
+@media screen and (max-width: 960px) {
+  #interactComponent button.open img {
+    width: 13px;
+  }
+}
+
+#interactComponent input.active {
+  visibility: visible;
+  max-width: 500px;
+  font-size: 1em;
+  padding-right: 50px;
+}
+
+@media screen and (max-width: 570px) {
+  #interactComponent input.active {
+    padding-right: 40px;
+  }
+}
+/*# sourceMappingURL=extras.css.map */

@@ -1,0 +1,120 @@
+@import "mixins";
+
+#main {
+    display: flex;
+    flex-flow: column;
+    --titleHeight: 100px;
+}
+
+#main-logoSpot {
+    display: grid;
+    place-content: center;
+    height: 100px;
+    height: var(--titleHeight);
+    transition: 300ms ease-in;
+    background-color: white;
+    border-radius: 40px;
+
+    @media screen and(max-width: $small-screen) {
+        position: sticky;
+        top: -5vh;
+        opacity: 1;
+        width: 100%;
+        z-index: 2;
+        background-color: #fbfbfb;
+    }
+
+    img {
+        margin: auto;
+        height: 60px;
+
+        @media screen and(max-width: $small-screen) {
+            height: 40px;
+        }
+    }
+}
+
+#main-listComponent {
+    width: 100%;
+    height: calc(100% - 100px);
+    height: calc(100% - var(--titleHeight));
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    @media screen and(max-width: $small-screen) {
+        overflow-y: initial;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        width: 90%;
+
+        li {
+            height: 45px;
+            margin-bottom: 10px;
+            border-bottom: $objectBorder;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+
+            @media screen and(max-width: $small-screen) {
+                height: 35px;
+            }
+
+            &:hover button.listItem-close {
+                display: grid;
+
+                @media screen and(max-width: $medium-screen) {
+                    filter: opacity(100%);
+                    transform: scale(.9);
+                }
+            }
+
+            p {
+                width: 90%;
+
+                &::selection {
+                    background: var(--color-lighter);
+                    color: white;
+                }
+            }
+        }
+
+
+        /*=======================
+    CLOSE BUTTONS  
+    ======================*/
+        button.listItem-close {
+            @include circle(30px);
+            background: none;
+            display: none;
+            transition: 100ms ease-out;
+
+            @media screen and(max-width: $medium-screen) {
+                display: grid;
+                filter: opacity(40%);
+                transform: scale(.7);
+            }
+
+            &:hover {
+                background-color: var(--color-lightest);
+                border-color: transparent;
+
+                img{
+                    filter: invert(100%);
+                }
+            }
+
+            img {
+                margin: auto;
+                width: 12px;
+                user-select: none;
+            }
+
+        }
+    }
+}

@@ -1,0 +1,25 @@
+
+/*=======================
+        MIxins
+    ======================*/
+    @mixin circle($size) {
+        box-sizing: border-box;
+        padding: 0;
+        background-color: var(--color-lighter);
+        height: $size;
+        width: $size;
+        border-radius: 50%;
+        border: $objectBorder;
+        display: grid;
+        place-content: center;
+        outline: none;
+        user-select: none;
+    }
+
+
+$objectBorder: solid 1px rgba(39, 39, 39, 0.116);
+
+$medium-screen: 960px;
+$small-screen: 570px;
+$short-screen: 560px;
+$shorter-screen: 480px;

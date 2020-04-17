@@ -7,7 +7,8 @@
     <title>TEXITO || The string matcher</title>
 
     <link rel="shortcut icon" href="./assets/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./css/main.css">
+    <!-- <link rel="stylesheet" href="./css/main.css"> -->
+    <link rel="stylesheet" href="./css/global.css">
 </head>
 
 <body id="body">
@@ -92,17 +93,20 @@
                 <li><p>I am a girl</p> <button class="listItem-close" id="2"><img src="/assets/svg-icons/close.svg" alt=""></button></li> -->
             </ul>
         </div>
-        <div id="interactComponent">
-            <p id="alert">Enter Text First</p>
-            <div>
-                <input type="text" id="textInput" placeholder="Enter line of text here">
-                <button id="textButton"><img src="./assets/svg-icons/plus.svg" alt=""></button>
-            </div>
-            <div>
-                <input type="text" id="searchInput" placeholder="Enter Keyword here">
-                <button id="searchButton"><img src="./assets/svg-icons/search.svg" alt=""></button>
-            </div>
     </section>
+    
+    <div id="interactComponent">
+        <p id="alert">Enter Text First</p>
+        <div>
+            <input type="text" id="textInput" placeholder="Enter line of text here">
+            <button id="textButton"><img src="./assets/svg-icons/plus.svg" alt=""></button>
+        </div>
+        <div>
+            <input type="text" id="searchInput" placeholder="Enter Keyword here">
+            <button id="searchButton"><img src="./assets/svg-icons/search.svg" alt=""></button>
+        </div>
+    </div>
+
     <article id="aboutTexito">
         <h3>ABOUT</h3>
         <p><strong>Texito</strong> is a string mathching web app. This project was built with SCSS and plain
@@ -110,10 +114,9 @@
             Thanks to everyone that has contributed to this project one way or another. Thanks to God the
             source
             of strength.</p>
-        <p>Copyright &copy; <a href="">Toby Chidi</a> 2020.</p>
+        <p>Copyright &copy; <a href="https://www.github.com/tobychidi" target="blank">Toby Chidi</a> 2020.</p>
         <button><img src="./assets/svg-icons/close.svg" alt=""></button>
     </article>
-    <span class="bodyCover"></span>
 
     <svg style="display: none;">
         <symbol id="star" viewBox="0 0 63 60">
@@ -121,6 +124,7 @@
                 d="M27.17 2.469a4.227 4.227 0 017.69 0l6.916 15.115 16.512 1.904a4.228 4.228 0 012.377 7.315L48.423 38.049l3.292 16.292a4.23 4.23 0 01-6.222 4.52l-14.479-8.164L16.54 58.86a4.23 4.23 0 01-6.222-4.52l3.292-16.292L1.37 26.803a4.228 4.228 0 012.377-7.315l16.512-1.904L27.17 2.469z" />
         </symbol>
     </svg>
+
     <script src="./js/sidebar-control.js"></script>
     <script src="./js/interactButtons.js"></script>
     <script src="./js/interactButton-changeIcon.js"></script>

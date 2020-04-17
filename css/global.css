@@ -1,6 +1,9 @@
-/*
-        My Variables
-        */
+/*=======================
+        MIxins
+    ======================*/
+/*=======================
+        Custom Properties
+    ======================*/
 :root {
   --hue: 348;
   --sat: 70%;
@@ -14,104 +17,107 @@
   --color-lightest: hsl(var(--hue), var(--sat), var(--lighterest));
 }
 
-/*
-        My Mixins
-        */
-body {
+/*=======================
+        Scss variables
+    ======================*/
+/*=======================
+        Global Resets
+    ======================*/
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  min-height: 480px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+}
+
+body {
   font-family: 'Segoe UI';
   font-size: 1.15em;
   color: #222;
-  --sideBar-width: 300px;
-  overflow: hidden;
 }
 
-@media screen and (max-width: 790px) {
+/*=======================
+        Grouped transitions
+    ======================*/
+#sideBar, #sideBar-control, #main {
+  -webkit-transition: 400ms ease-out;
+  transition: 400ms ease-out;
+}
+
+/*=======================
+        RESPONSIVE FONTS
+    ======================*/
+@media screen and (max-width: 960px) {
   body {
-    --sideBar-width: 0px;
     font-size: 1em;
   }
 }
 
 @media screen and (max-width: 570px) {
   body {
-    font-size: .98em;
+    overflow-y: .9em;
   }
 }
 
-@-webkit-keyframes display {
-  0% {
-    display: none;
-  }
-  100% {
-    display: -webkit-box;
-    display: flex;
-  }
-}
-
-@keyframes display {
-  0% {
-    display: none;
-  }
-  100% {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
+/*=======================
+        Imports
+    ======================*/
+/*=======================
+        MIxins
+    ======================*/
+body {
+  width: 100vw;
+  --sideBar-width: 300px;
+  overflow: hidden;
 }
 
 body.sideBar-close {
   --sideBar-width: 0px;
 }
 
-@media screen and (max-width: 790px) {
-  body.sideBar-close {
-    --sideBar-width: 300px;
-  }
+#sideBar {
+  width: var(--sideBar-width);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
 }
 
-body.sideBar-close #sideBar div {
-  -webkit-transform: translateX(-300px);
-          transform: translateX(-300px);
+#sideBar-control {
+  z-index: 6;
 }
 
-@media screen and (max-width: 790px) {
-  body.sideBar-close #sideBar div {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-    visibility: visible;
-  }
+#main {
+  width: calc(100vw - var(--sideBar-width));
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: var(--sideBar-width);
+  padding: 5vh 6vw;
+  z-index: 2;
 }
 
 @media screen and (max-width: 570px) {
-  body.sideBar-close #main {
-    display: none;
-  }
-  body.sideBar-close #main-logoSpot img, body.sideBar-close #interactComponent {
-    display: none;
+  #main {
+    overflow-y: auto;
   }
 }
 
-/*
-        SideBar Stuff
-        */
+#interactComponent {
+  z-index: 3;
+}
+
+#aboutTexito {
+  z-index: 7;
+}
+
+/*=======================
+        MIxins
+    ======================*/
 #sideBar {
-  height: 100%;
-  width: 35%;
-  max-width: var(--sideBar-width);
   background-color: var(--color);
-  -webkit-transition: 300ms ease-in;
-  transition: 300ms ease-in;
-  border-right: solid 1px rgba(39, 39, 39, 0.096);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -122,47 +128,22 @@ body.sideBar-close #sideBar div {
           flex-flow: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  position: relative;
+  border-right: solid 1px rgba(39, 39, 39, 0.116);
 }
 
-@media screen and (max-width: 790px) {
-  #sideBar {
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 570px) {
-  #sideBar {
-    width: 90%;
-    z-index: 1;
-  }
-}
-
-@media screen and (max-height: 560px) {
-  #sideBar {
-    padding: 10px 0;
-  }
-}
-
-#sideBar div.sideBar-child {
+.sideBar-child {
   width: 90%;
   overflow: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-transition: 200ms ease-in;
-  transition: 200ms ease-in;
+  -webkit-transition: opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out 150ms;
+  transition: opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out 150ms;
+  transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms;
+  transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms, -webkit-transform 600ms ease-out 150ms;
   padding: 0 20px;
 }
 
-@media screen and (max-width: 790px) {
-  #sideBar div.sideBar-child {
-    -webkit-transform: translateX(-300px);
-            transform: translateX(-300px);
-    visibility: hidden;
-  }
-}
-
-#sideBar div.sideBar-child h3 {
+.sideBar-child h3 {
   font-weight: normal;
   font-size: 1.1em;
   white-space: nowrap;
@@ -173,59 +154,16 @@ body.sideBar-close #sideBar div {
           user-select: none;
 }
 
-div#aboutSection label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+body.sideBar-close div.sideBar-child {
+  -webkit-transform: translateX(-200%);
+          transform: translateX(-200%);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
 }
 
-div#aboutSection label button {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 0;
-  background-color: var(--color-lighter);
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.096);
-  display: -ms-grid;
-  display: grid;
-  place-content: center;
-  outline: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  border-color: white;
-  background-color: var(--color);
-}
-
-div#aboutSection label button:hover {
-  background-color: var(--color-lighter);
-  border-color: transparent;
-}
-
-div#aboutSection label button img {
-  margin: auto;
-  width: 15px;
-}
-
-div#aboutSection label button.active {
-  background-color: white;
-}
-
-div#aboutSection label button.active img {
-  -webkit-filter: invert(100%) opacity(80%);
-          filter: invert(100%) opacity(80%);
-}
-
-ul#recentSearch {
+#recentSearch {
   list-style-type: circle;
   margin: 0;
   padding: 0 25px;
@@ -233,11 +171,11 @@ ul#recentSearch {
   font-size: 0.8em;
 }
 
-ul#recentSearch li {
+#recentSearch li {
   margin: 5px 5px;
 }
 
-div#themeBox {
+#themeBox {
   display: -ms-grid;
   display: grid;
   height: 100px;
@@ -245,16 +183,15 @@ div#themeBox {
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
-  margin-bottom: 15px;
 }
 
 @media screen and (max-height: 560px) {
-  div#themeBox {
+  #themeBox {
     gap: 5px;
   }
 }
 
-div#themeBox label {
+#themeBox label {
   display: block;
   padding: 3px;
   border-radius: 10px;
@@ -265,19 +202,19 @@ div#themeBox label {
   border: solid 2px transparent;
 }
 
-div#themeBox label:hover {
+#themeBox label:hover {
   border: solid 2px rgba(255, 255, 255, 0.425);
 }
 
-div#themeBox label input {
+#themeBox label input {
   display: none;
 }
 
-div#themeBox label span {
+#themeBox label span {
   visibility: hidden;
 }
 
-div#themeBox label span {
+#themeBox label span {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0;
@@ -285,7 +222,7 @@ div#themeBox label span {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.096);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -297,44 +234,44 @@ div#themeBox label span {
   background-color: #28aa28;
 }
 
-div#themeBox label span img {
+#themeBox label span img {
   height: 10px;
   margin: auto;
 }
 
-div#themeBox label.active {
+#themeBox label.active {
   border: solid 2px rgba(255, 255, 255, 0.767);
 }
 
-div#themeBox label.active span {
+#themeBox label.active span {
   visibility: visible;
 }
 
-div#themeBox #red {
+#themeBox #red {
   background-color: #ad1f3b;
 }
 
-div#themeBox #orange {
+#themeBox #orange {
   background-color: #bf6318;
 }
 
-div#themeBox #cyan {
+#themeBox #cyan {
   background-color: #178247;
 }
 
-div#themeBox #purple {
+#themeBox #purple {
   background-color: #6c136c;
 }
 
-div#themeBox #blue {
+#themeBox #blue {
   background-color: #1f74ad;
 }
 
-div#themeBox #dark {
+#themeBox #dark {
   background-color: #212121;
 }
 
-div#rating {
+#rating {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -345,14 +282,13 @@ div#rating {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 15px;
 }
 
-div#rating div#ratingBox {
+#rating div#ratingBox {
   font-size: .8em;
 }
 
-div#rating div#ratingBox div#starsBox {
+#rating div#ratingBox div#starsBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -361,7 +297,7 @@ div#rating div#ratingBox div#starsBox {
   margin-bottom: 15px;
 }
 
-div#rating div#ratingBox div#starsBox button {
+#rating div#ratingBox div#starsBox button {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0;
@@ -369,7 +305,7 @@ div#rating div#ratingBox div#starsBox button {
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.096);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -382,11 +318,11 @@ div#rating div#ratingBox div#starsBox button {
   border-color: rgba(255, 255, 255, 0.055);
 }
 
-div#rating div#ratingBox div#starsBox button:hover {
+#rating div#ratingBox div#starsBox button:hover {
   border-color: rgba(255, 255, 255, 0.966);
 }
 
-div#rating div#ratingBox div#starsBox button svg {
+#rating div#ratingBox div#starsBox button svg {
   display: block;
   height: 20px;
   width: 20px;
@@ -397,18 +333,18 @@ div#rating div#ratingBox div#starsBox button svg {
   padding: 0;
 }
 
-div#rating div#ratingBox div#starsBox button.checked svg {
+#rating div#ratingBox div#starsBox button.checked svg {
   fill: rgba(255, 255, 255, 0.932);
   stroke: none;
 }
 
-div#rating div#ratingBox form {
+#rating div#ratingBox form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-div#rating div#ratingBox form input {
+#rating div#ratingBox form input {
   all: unset;
   width: calc(100% - 45px);
   font-size: inherit;
@@ -416,38 +352,38 @@ div#rating div#ratingBox form input {
   border: none;
   color: inherit;
   background-color: transparent;
-  border-bottom: solid 1px rgba(39, 39, 39, 0.096);
+  border-bottom: solid 1px rgba(39, 39, 39, 0.116);
   border-color: rgba(255, 255, 255, 0.596);
   -webkit-transition: 400ms ease-in;
   transition: 400ms ease-in;
 }
 
-div#rating div#ratingBox form input::-webkit-input-placeholder {
+#rating div#ratingBox form input::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.596);
 }
 
-div#rating div#ratingBox form input:-ms-input-placeholder {
+#rating div#ratingBox form input:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.596);
 }
 
-div#rating div#ratingBox form input::-ms-input-placeholder {
+#rating div#ratingBox form input::-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.596);
 }
 
-div#rating div#ratingBox form input::placeholder {
+#rating div#ratingBox form input::placeholder {
   color: rgba(255, 255, 255, 0.596);
 }
 
-div#rating div#ratingBox form input + button {
+#rating div#ratingBox form input + button {
   margin-left: -20px;
 }
 
-div#rating div#ratingBox form input:focus {
+#rating div#ratingBox form input:focus {
   border-color: rgba(255, 255, 255, 0.966);
   margin-right: 10px;
 }
 
-div#rating div#ratingBox form input:focus + button {
+#rating div#ratingBox form input:focus + button {
   margin-left: 0px;
   -webkit-transform: rotate(1turn);
           transform: rotate(1turn);
@@ -455,12 +391,12 @@ div#rating div#ratingBox form input:focus + button {
   border-color: transparent;
 }
 
-div#rating div#ratingBox form input:focus + button img {
+#rating div#ratingBox form input:focus + button img {
   -webkit-filter: invert(0%) opacity(80%);
           filter: invert(0%) opacity(80%);
 }
 
-div#rating div#ratingBox form button {
+#rating div#ratingBox form button {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0;
@@ -468,7 +404,7 @@ div#rating div#ratingBox form button {
   height: 35px;
   width: 35px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.096);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -483,122 +419,43 @@ div#rating div#ratingBox form button {
   transition: 400ms ease-in;
 }
 
-div#rating div#ratingBox form button img {
+#rating div#ratingBox form button img {
   width: 15px;
   margin: auto;
   -webkit-filter: invert(100%);
           filter: invert(100%);
 }
 
-div#rating div#ratingBox form button:hover {
+#rating div#ratingBox form button:hover {
   background-color: var(--color-lighter) !important;
 }
 
-div#rating div#ratingBox form button:hover img {
+#rating div#ratingBox form button:hover img {
   -webkit-filter: invert(100%) !important;
           filter: invert(100%) !important;
 }
 
-span.bodyCover {
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  background-color: #222;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 6;
-  -webkit-filter: opacity(60%);
-          filter: opacity(60%);
-}
-
-article#aboutTexito {
+#aboutSection label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  visibility: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  overflow: hidden;
-  position: absolute;
-  width: 40vw;
-  min-width: 400px;
-  top: 25vh;
-  left: 40vw;
-  z-index: 7;
-  background-color: green;
-  background-color: rgba(255, 255, 255, 0.945);
-  border: solid 1px rgba(39, 39, 39, 0.096);
-  border-radius: 30px;
-  color: #222;
-  -webkit-transform: translateX(-50%) rotate(-100grad);
-          transform: translateX(-50%) rotate(-100grad);
-  -webkit-transform-origin: 0 100%;
-          transform-origin: 0 100%;
-  -webkit-transition: -webkit-transform 500ms ease-out;
-  transition: -webkit-transform 500ms ease-out;
-  transition: transform 500ms ease-out;
-  transition: transform 500ms ease-out, -webkit-transform 500ms ease-out;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-@media screen and (max-width: 790px) {
-  article#aboutTexito {
-    min-width: 200px;
-    top: 15vh;
-    width: 70vw;
-    left: 15vw;
-    font-size: inherit;
-  }
-}
-
-@media screen and (max-width: 570px) {
-  article#aboutTexito {
-    width: 90vw;
-    left: 5vw;
-  }
-}
-
-article#aboutTexito h3 {
-  color: white;
-  background-color: var(--color-lighter);
-  font-size: 1.25em;
-  margin: 0px;
-  padding: 20px 70px 15px 70px;
-  width: 100%;
-  border: solid 1px rgba(39, 39, 39, 0.096);
-}
-
-article#aboutTexito p {
-  padding: 0 40px;
-  margin: 0;
-  margin-top: 20px;
-}
-
-article#aboutTexito p a {
-  color: inherit;
-  text-decoration: none;
-  height: 2px;
-  border-bottom: solid 4px var(--color-lightest);
-  margin-bottom: -5px;
-}
-
-article#aboutTexito button {
+#aboutSection label button {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0;
   background-color: var(--color-lighter);
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.096);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -607,58 +464,36 @@ article#aboutTexito button {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  background-color: transparent;
-  -webkit-transition: 200ms ease-out;
-  transition: 200ms ease-out;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  border-color: white;
+  background-color: var(--color);
 }
 
-article#aboutTexito button img {
+#aboutSection label button:hover {
+  background-color: var(--color-lighter);
+  border-color: transparent;
+}
+
+#aboutSection label button img {
   margin: auto;
   width: 15px;
-  -webkit-filter: opacity(80%);
-          filter: opacity(80%);
-  -webkit-transition: 200ms ease-out;
-  transition: 200ms ease-out;
 }
 
-article#aboutTexito button:hover {
-  background-color: var(--color-light);
+#aboutSection label button.active {
+  background-color: white;
 }
 
-article#aboutTexito button:hover img {
-  -webkit-filter: invert(100%);
-          filter: invert(100%);
+#aboutSection label button.active img {
+  -webkit-filter: invert(100%) opacity(80%);
+          filter: invert(100%) opacity(80%);
 }
 
-article#aboutTexito.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  visibility: visible;
-  -webkit-transform: translateX(0vw) rotate(0grad);
-          transform: translateX(0vw) rotate(0grad);
-}
-
+/*=======================
+        Side Bar Controller
+    ======================*/
 #sideBar-control.active {
   right: -40px;
   -webkit-transform: rotate(0);
           transform: rotate(0);
-}
-
-@media screen and (max-width: 790px) {
-  #sideBar-control.active {
-    right: -30px;
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-  }
-}
-
-@media screen and (max-width: 570px) {
-  #sideBar-control.active {
-    right: -25px;
-  }
 }
 
 #sideBar-control {
@@ -669,7 +504,7 @@ article#aboutTexito.active {
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.096);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -678,49 +513,13 @@ article#aboutTexito.active {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  /*control the position of this button and main so they can overlap*/
   -ms-grid-row-align: center;
       align-self: center;
-  z-index: 1;
-  -webkit-transition: -webkit-transform 200ms ease-out;
-  transition: -webkit-transform 200ms ease-out;
-  transition: transform 200ms ease-out;
-  transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   position: absolute;
   top: calc(50vh - 30px);
   right: -30px;
-}
-
-@media screen and (max-width: 790px) {
-  #sideBar-control {
-    right: -40px;
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
-  }
-}
-
-@media screen and (max-width: 570px) {
-  #sideBar-control {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    padding: 0;
-    background-color: var(--color-lighter);
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    border: solid 1px rgba(39, 39, 39, 0.096);
-    display: -ms-grid;
-    display: grid;
-    place-content: center;
-    outline: none;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    right: -30px;
-  }
 }
 
 #sideBar-control:hover {
@@ -737,28 +536,10 @@ article#aboutTexito.active {
           user-select: none;
 }
 
-@media screen and (max-width: 790px) {
-  #sideBar-control img {
-    height: 16px;
-  }
-}
-
-@media screen and (max-width: 570px) {
-  #sideBar-control img {
-    height: 12px;
-  }
-}
-
+/*=======================
+        MIxins
+    ======================*/
 #main {
-  width: calc(100% - var(--sideBar-width));
-  -webkit-transition: width 400ms ease-out;
-  transition: width 400ms ease-out;
-  min-width: 65%;
-  margin-left: -30px;
-  /*control the position of this section and button*/
-  padding: 10px 50px 30px 50px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -769,59 +550,37 @@ article#aboutTexito.active {
   --titleHeight: 100px;
 }
 
-@media screen and (max-width: 790px) {
-  #main {
-    min-width: 50%;
-  }
-}
-
-@media screen and (max-width: 570px) {
-  #main {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    width: 100vw;
-    min-width: 0;
-    margin-left: auto;
-    z-index: 0;
-    overflow-y: auto;
-    margin-top: 30px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-}
-
-#main #main-logoSpot {
+#main-logoSpot {
   display: -ms-grid;
   display: grid;
   place-content: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   height: 100px;
   height: var(--titleHeight);
   -webkit-transition: 300ms ease-in;
   transition: 300ms ease-in;
+  background-color: white;
+  border-radius: 40px;
 }
 
 @media screen and (max-width: 570px) {
-  #main #main-logoSpot {
+  #main-logoSpot {
     position: -webkit-sticky;
     position: sticky;
-    top: -40px;
-    background-color: white;
+    top: -5vh;
     opacity: 1;
     width: 100%;
     z-index: 2;
+    background-color: #fbfbfb;
   }
 }
 
-#main #main-logoSpot img {
+#main-logoSpot img {
   margin: auto;
   height: 60px;
 }
 
 @media screen and (max-width: 570px) {
-  #main #main-logoSpot img {
+  #main-logoSpot img {
     height: 40px;
   }
 }
@@ -852,12 +611,15 @@ article#aboutTexito.active {
   list-style-type: none;
   padding: 0;
   width: 90%;
+  /*=======================
+    CLOSE BUTTONS  
+    ======================*/
 }
 
 #main-listComponent ul li {
   height: 45px;
   margin-bottom: 10px;
-  border-bottom: solid 1px rgba(39, 39, 39, 0.096);
+  border-bottom: solid 1px rgba(39, 39, 39, 0.116);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -879,7 +641,7 @@ article#aboutTexito.active {
   display: grid;
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 960px) {
   #main-listComponent ul li:hover button.listItem-close {
     -webkit-filter: opacity(100%);
             filter: opacity(100%);
@@ -910,7 +672,7 @@ article#aboutTexito.active {
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.096);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -925,7 +687,7 @@ article#aboutTexito.active {
   transition: 100ms ease-out;
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 960px) {
   #main-listComponent ul button.listItem-close {
     display: -ms-grid;
     display: grid;
@@ -938,6 +700,12 @@ article#aboutTexito.active {
 
 #main-listComponent ul button.listItem-close:hover {
   background-color: var(--color-lightest);
+  border-color: transparent;
+}
+
+#main-listComponent ul button.listItem-close:hover img {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
 }
 
 #main-listComponent ul button.listItem-close img {
@@ -949,6 +717,165 @@ article#aboutTexito.active {
           user-select: none;
 }
 
+/*=======================
+        MIxins
+    ======================*/
+/*=======================
+        ABOUT SECTION
+    ======================*/
+#aboutTexito {
+  width: 40vw;
+  min-width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: rgba(255, 255, 255, 0.945);
+  border: solid 1px rgba(39, 39, 39, 0.116);
+  border-radius: 30px;
+  -webkit-transform: translateX(-50%) rotate(-100grad);
+          transform: translateX(-50%) rotate(-100grad);
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transition: -webkit-transform 500ms ease-out;
+  transition: -webkit-transform 500ms ease-out;
+  transition: transform 500ms ease-out;
+  transition: transform 500ms ease-out, -webkit-transform 500ms ease-out;
+  -webkit-box-shadow: 0px 0px 4px 4px rgba(36, 36, 36, 0.082), 0px 0px 20px 10px rgba(66, 66, 66, 0.13);
+          box-shadow: 0px 0px 4px 4px rgba(36, 36, 36, 0.082), 0px 0px 20px 10px rgba(66, 66, 66, 0.13);
+}
+
+@media screen and (max-width: 570px) {
+  #aboutTexito {
+    min-width: calc(80vw);
+  }
+}
+
+#aboutTexito h3 {
+  color: white;
+  background-image: linear-gradient(135deg, #f39c18, var(--color-light) 30%, #f39c18, #c20e2c);
+  background-size: 150%;
+  background-position: center;
+  background-color: var(--color-lighter);
+  font-size: 1.25em;
+  margin: 0px;
+  padding: 20px 70px 15px 70px;
+  width: 100%;
+  border: solid 1px rgba(39, 39, 39, 0.116);
+}
+
+#aboutTexito p {
+  padding: 0 40px;
+  margin: 0;
+  margin-top: 20px;
+}
+
+#aboutTexito p a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--color);
+  text-decoration: none;
+}
+
+#aboutTexito p a:hover {
+  color: #222;
+}
+
+#aboutTexito p a::after {
+  content: "";
+  display: inline-block;
+  max-width: 0;
+  height: 4px;
+  width: 100%;
+  background-color: var(--color-lightest);
+  margin-top: -5px;
+  z-index: -1;
+  opacity: .7;
+  border-radius: 3px;
+  -webkit-transition: 200ms ease-out;
+  transition: 200ms ease-out;
+}
+
+#aboutTexito p a:hover::after {
+  max-width: 100%;
+}
+
+#aboutTexito button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  background-color: var(--color-lighter);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: solid 1px rgba(39, 39, 39, 0.116);
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  outline: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: transparent;
+  -webkit-transition: 200ms ease-out;
+  transition: 200ms ease-out;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+#aboutTexito button img {
+  margin: auto;
+  width: 15px;
+  -webkit-filter: opacity(80%);
+          filter: opacity(80%);
+  -webkit-transition: 200ms ease-out;
+  transition: 200ms ease-out;
+}
+
+#aboutTexito button:hover {
+  background-color: var(--color-light);
+}
+
+#aboutTexito button:hover img {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+#aboutTexito.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
+  -webkit-transform: translate(-50%, -50%) rotate(0grad);
+          transform: translate(-50%, -50%) rotate(0grad);
+}
+
+/*=======================
+    INTERACTIVE BUTTONS  
+    ======================*/
 #interactComponent {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -963,8 +890,8 @@ article#aboutTexito.active {
   bottom: 60px;
   right: 5vw;
   /*
-        Interactivity Control
-        */
+            Interactivity Control
+            */
 }
 
 @media screen and (max-width: 570px) {
@@ -1031,7 +958,7 @@ article#aboutTexito.active {
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  border: solid 1px rgba(39, 39, 39, 0.096);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -1044,7 +971,7 @@ article#aboutTexito.active {
   transition: 400ms ease-in, background-color 300ms ease-out;
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 960px) {
   #interactComponent button {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -1053,7 +980,7 @@ article#aboutTexito.active {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    border: solid 1px rgba(39, 39, 39, 0.096);
+    border: solid 1px rgba(39, 39, 39, 0.116);
     display: -ms-grid;
     display: grid;
     place-content: center;
@@ -1074,7 +1001,7 @@ article#aboutTexito.active {
           user-select: none;
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 960px) {
   #interactComponent button img {
     width: 15px;
   }
@@ -1110,7 +1037,7 @@ article#aboutTexito.active {
   all: unset;
   width: 40vw;
   border-radius: 40px;
-  border: solid 1px rgba(39, 39, 39, 0.096);
+  border: solid 1px rgba(39, 39, 39, 0.116);
   background-color: #ececec;
   margin-right: -40px;
   -webkit-box-sizing: border-box;
@@ -1125,7 +1052,7 @@ article#aboutTexito.active {
   transition: 200ms ease;
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 960px) {
   #interactComponent input {
     width: 60vw;
     height: 40px;
@@ -1169,7 +1096,7 @@ article#aboutTexito.active {
   width: 16px;
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 960px) {
   #interactComponent button.open img {
     width: 13px;
   }
@@ -1187,4 +1114,4 @@ article#aboutTexito.active {
     padding-right: 40px;
   }
 }
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=global.css.map */

@@ -1,0 +1,47 @@
+@import "mixins";
+
+body{
+    width: 100vw;
+    --sideBar-width: 300px;
+    overflow: hidden;
+}
+
+body.sideBar-close{
+    --sideBar-width: 0px;
+}
+
+
+#sideBar{
+    width: var(--sideBar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 4;
+    // overflow-x: hidden;
+    // visibility: hidden;
+}
+
+#sideBar-control{
+    z-index: 6;
+}
+
+#main{
+    width: calc(100vw - var(--sideBar-width));
+    height: 100vh;
+    position: absolute;
+    top: 0; left: var(--sideBar-width);
+    padding: 5vh 6vw;
+    z-index: 2;
+
+    @media screen and(max-width: $small-screen) {
+        overflow-y: auto;
+    }
+}
+
+#interactComponent{
+    z-index: 3;
+}
+
+#aboutTexito{
+    z-index: 7;
+}

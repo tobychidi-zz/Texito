@@ -1,0 +1,296 @@
+@import "mixins";
+
+#sideBar {
+    background-color: var(--color);
+    color: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    border-right: $objectBorder;
+}
+
+.sideBar-child {
+    width: 90%;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: transform 600ms ease-out 150ms, opacity 400ms ease-in 50ms;
+    padding: 0 20px;
+
+    h3 {
+        font-weight: normal;
+        font-size: 1.1em;
+        white-space: nowrap;
+        margin: 10px 0;
+        user-select: none;
+    }
+}
+
+body.sideBar-close{
+
+    div.sideBar-child{
+        transform: translateX(-200%);
+        visibility: hidden;
+        opacity: 0;
+        transition-delay: 0ms;
+    }
+}
+
+#recentSearch {
+    list-style-type: circle;
+    margin: 0;
+    padding: 0 25px;
+    height: 5em;
+    font-size: 0.8em;
+
+
+
+    li {
+        margin: 5px 5px;
+    }
+}
+
+#themeBox {
+    display: grid;
+    height: 100px;
+    width: 90%;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+
+    @media screen and(max-height: $short-screen) {
+        gap: 5px;
+    }
+
+    label {
+        display: block;
+        padding: 3px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: 150ms ease-out;
+        border: solid 2px transparent;
+
+        &:hover {
+            border: solid 2px rgba(255, 255, 255, 0.425);
+        }
+
+        input {
+            display: none;
+        }
+
+        span {
+            visibility: hidden;
+        }
+
+        span {
+            @include circle(20px);
+            background-color: rgb(40, 170, 40);
+
+            img {
+                height: 10px;
+                margin: auto;
+            }
+        }
+    }
+
+    label.active {
+        border: solid 2px rgba(255, 255, 255, 0.767);
+
+        span {
+            visibility: visible;
+        }
+    }
+
+    #red {
+        background-color: hsl(348, 70%, 40%);
+    }
+
+    #orange {
+        background-color: hsl(27, 78%, 42%);
+    }
+
+    #cyan {
+        background-color: hsl(147, 70%, 30%);
+    }
+
+    #purple {
+        background-color: hsl(300, 70%, 25%);
+    }
+
+    #blue {
+        background-color: hsl(204, 70%, 40%);
+    }
+
+    #dark {
+        background-color: #212121;
+    }
+}
+
+#rating {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+
+    div#ratingBox {
+        font-size: .8em;
+
+        div#starsBox {
+            display: flex;
+            // width: 70%;
+            justify-content: space-around;
+            margin-bottom: 15px;
+
+            button {
+                @include circle(30px);
+                background-color: transparent;
+                border-color: rgba(255, 255, 255, 0.055);
+
+                &:hover {
+                    border-color: rgba(255, 255, 255, 0.966);
+                }
+
+                svg {
+                    display: block;
+                    height: 20px;
+                    width: 20px;
+                    fill: none;
+                    stroke-width: 3px;
+                    stroke: white;
+                    margin: auto;
+                    padding: 0;
+                }
+            }
+
+            button.checked {
+                svg {
+                    fill: rgba(255, 255, 255, 0.932);
+                    stroke: none;
+                }
+            }
+        }
+
+        form {
+            display: flex;
+
+            input {
+                all: unset;
+                width: calc(100% - 45px);
+                font-size: inherit;
+                display: block;
+                border: none;
+                color: inherit;
+                background-color: transparent;
+                border-bottom: $objectBorder;
+                border-color: rgba(255, 255, 255, 0.596);
+                transition: 400ms ease-in;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.596);
+                }
+
+                &+button {
+                    margin-left: -20px;
+                }
+
+                &:focus {
+                    border-color: rgba(255, 255, 255, 0.966);
+                    margin-right: 10px;
+
+                    &+button {
+                        margin-left: 0px;
+                        transform: rotate(1turn);
+                        background-color: white;
+                        border-color: transparent;
+
+                        img {
+                            filter: invert(0%) opacity(80%);
+                        }
+                    }
+                }
+            }
+
+            button {
+                @include circle(35px);
+
+                border-color: white;
+                background-color: var(--color);
+                transition: 400ms ease-in;
+
+                img {
+                    width: 15px;
+                    margin: auto;
+                    filter: invert(100%);
+                }
+
+                &:hover {
+                    background-color: var(--color-lighter) !important;
+
+                    img {
+                        filter: invert(100%) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#aboutSection {
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // width: 70%;
+
+        button {
+            @include circle(30px);
+            border-color: white;
+            background-color: var(--color);
+
+
+            &:hover {
+                background-color: var(--color-lighter);
+                border-color: transparent;
+            }
+
+            img {
+                margin: auto;
+                width: 15px;
+            }
+        }
+
+        button.active {
+            background-color: white;
+
+            img {
+                filter: invert(100%) opacity(80%);
+            }
+        }
+    }
+}
+
+/*=======================
+        Side Bar Controller
+    ======================*/
+
+#sideBar-control.active {
+    right: -40px;
+    transform: rotate(0);
+}
+
+#sideBar-control {
+    @include circle(60px);
+    align-self: center;
+    transform: rotate(180deg);
+    position: absolute;
+    top: calc(50vh - 30px);
+    right: -30px;
+
+    &:hover {
+        background-color: var(--color-light);
+    }
+
+    img {
+        margin: auto;
+        display: block;
+        height: 18px;
+        user-select: none;
+    }
+}

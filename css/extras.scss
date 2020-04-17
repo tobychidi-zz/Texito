@@ -1,0 +1,290 @@
+@import "mixins";
+/*=======================
+        ABOUT SECTION
+    ======================*/
+
+#aboutTexito {
+    width: 40vw;
+    min-width: 400px;
+    display: flex;
+    visibility: hidden;
+    flex-flow: column;
+    text-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: rgba(255, 255, 255, 0.945);
+    border: $objectBorder;
+    border-radius: 30px;
+    transform: translateX(-50%) rotate(-100grad);
+    transform-origin: 0 100%;
+    transition: transform 500ms ease-out;
+    box-shadow: 0px 0px 4px 4px rgba(36, 36, 36, 0.082), 0px 0px 20px 10px rgba(66, 66, 66, 0.13);
+    
+
+    @media screen and(max-width: $small-screen) {
+        min-width: calc(80vw);
+    }
+
+    h3 {
+        color: white;
+        background-image: linear-gradient(135deg, rgb(243, 156, 24), var(--color-light) 30%, rgb(243, 156, 24), rgb(194, 14, 44));
+        background-size: 150%;
+        background-position: center;
+        background-color: var(--color-lighter);
+        font-size: 1.25em;
+        margin: 0px;
+        padding: 20px 70px 15px 70px;
+        width: 100%;
+        border: $objectBorder;
+    }
+
+
+
+    p {
+        padding: 0 40px;
+        margin: 0;
+        margin-top: 20px;
+
+        a {
+            display: inline-flex;
+            flex-flow: column;
+            align-items: center;
+            color: var(--color);
+            text-decoration: none;
+            // height: 2px;
+            // border-bottom: solid 4px var(--color-lightest);
+            &:hover{
+                color: #222;
+            }
+
+            &::after{
+                content: "";
+                display: inline-block;
+                max-width: 0;
+                height: 4px;
+                width: 100%;
+                background-color: var(--color-lightest);
+                margin-top: -5px;
+                z-index: -1;
+                opacity: .7;
+                border-radius: 3px;
+                transition: 200ms ease-out;
+            }
+
+            &:hover::after{
+                max-width: 100%;
+            }
+        }
+    }
+
+    button {
+        @include circle(40px);
+        background-color: transparent;
+        transition: 200ms ease-out;
+        margin-top: 20px;
+        margin-bottom: 40px;
+
+        img {
+            margin: auto;
+            width: 15px;
+            filter: opacity(80%);
+            transition: 200ms ease-out;
+        }
+
+        &:hover {
+            background-color: var(--color-light);
+
+            img {
+                filter: invert(100%);
+            }
+        }
+    }
+
+
+}
+
+#aboutTexito.active {
+    display: flex;
+    visibility: visible;
+    transform: translate(-50%, -50%) rotate(0grad);
+}
+
+
+
+/*=======================
+    INTERACTIVE BUTTONS  
+    ======================*/
+
+#interactComponent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 60px;
+    right: 5vw;
+
+    @media screen and(max-width: $small-screen) {
+        flex-flow: column;
+        align-items: flex-end;
+        bottom: 10px;
+        right: 5vw;
+        padding: 5px;
+        background-color: transparent;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+    }
+
+    #alert {
+        display: none;
+        justify-content: center;
+        font-size: 0.7em;
+        padding: 10px;
+        width: 112px;
+        box-sizing: border-box;
+        background-color: var(--color-lightest);
+        border-radius: 25px;
+        position: absolute;
+        bottom: 50px;
+        margin-right: 20px;
+
+        &::after {
+            content: '';
+            display: block;
+            box-sizing: border-box;
+            height: 15px;
+            width: 25px;
+            background-color: inherit;
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+            position: absolute;
+            bottom: -10px;
+        }
+    }
+
+    button {
+        @include circle(60px);
+        transition: 400ms ease-in, background-color 300ms ease-out;
+
+        @media screen and(max-width: $medium-screen) {
+            @include circle(50px)
+        }
+
+        img {
+            margin: auto;
+            width: 20px;
+            user-select: none;
+
+            @media screen and(max-width: $medium-screen) {
+                width: 15px;
+            }
+        }
+    }
+
+    #textButton {
+        margin-right: 10px;
+        background-color: var(--color);
+
+        @media screen and(max-width: $small-screen) {
+            margin-right: 0px;
+            margin-bottom: 5px;
+        }
+
+        &:hover {
+            --color: hsl(var(--hue), var(--sat), var(--lightd, 32%));
+            --lightd: calc(-10% + var(--light));
+        }
+    }
+
+    #searchButton {
+        background-color: var(--color-lighter);
+
+        &:hover {
+            --color-lighter: hsl(var(--hue), var(--sat), var(--lightererd, 52%));
+            --lightererd: calc(-20% + var(--lighterer));
+        }
+    }
+
+    input {
+        all: unset;
+        width: 40vw;
+        border-radius: 40px;
+        // border: 1px solid #222;
+        border: $objectBorder;
+        background-color: rgb(236, 236, 236);
+        margin-right: -40px;
+        box-sizing: border-box;
+        padding: 20px;
+        // padding-right: 50px;
+        height: 50px;
+        font-size: 0em;
+        font: inherit;
+        // display: none;
+        visibility: hidden;
+        max-width: 0px;
+        transition: 200ms ease;
+
+        @media screen and(max-width: $medium-screen) {
+            width: 60vw;
+            height: 40px;
+        }
+
+        @media screen and(max-width: $small-screen) {
+            width: 80vw;
+            margin-right: -30px;
+            // font-size: 0.8em;
+        }
+
+        &::selection {
+            background: var(--color-lighter);
+            color: white;
+        }
+    }
+
+    /*
+            Interactivity Control
+            */
+    button.active {
+        $mycolor: green;
+        background-color: $mycolor !important;
+
+        &:hover {
+            background-color: darken($mycolor, 10%) !important;
+        }
+    }
+
+    button.open {
+        $mycolor: #222;
+        background-color: $mycolor !important;
+
+        &:hover {
+            background-color: darken($mycolor, 15%) !important;
+        }
+
+        img {
+            width: 16px;
+
+            @media screen and(max-width: $medium-screen) {
+                width: 13px;
+            }
+
+            // filter: brightness(0%);
+        }
+    }
+
+    input.active {
+        visibility: visible;
+        max-width: 500px;
+        font-size: 1em;
+        padding-right: 50px;
+
+        @media screen and(max-width: $small-screen) {
+            padding-right: 40px;
+        }
+    }
+}
