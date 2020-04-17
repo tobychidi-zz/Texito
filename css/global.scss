@@ -37,8 +37,9 @@
 }
 
 body{
-    font-family: 'Segoe UI';
-    font-size: 1.15em;
+    font-family: 'Baloo Bhaina 2', cursive;
+    font-size: 1.2em;
+    line-height: 1.5em;
     color: #222;
 }
 
@@ -76,3 +77,4 @@ body{
 @import "sideBar";
 @import "list";
 @import "extras";
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&display=swap');
