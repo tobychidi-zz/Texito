@@ -77,7 +77,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: var(--color);
+  color: var(--color-lighter);
   text-decoration: none;
 }
 
@@ -121,11 +121,43 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  position: relative;
   background-color: transparent;
   -webkit-transition: 200ms ease-out;
   transition: 200ms ease-out;
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+@media screen and (max-width: 960px) {
+  #aboutTexito button::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    background-color: var(--color-lighter);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    -webkit-transition: 200ms ease-out;
+    transition: 200ms ease-out;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  #aboutTexito button:active {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+
+#aboutTexito button:active::before {
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  opacity: .4;
 }
 
 #aboutTexito button img {
@@ -249,8 +281,40 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  position: relative;
   -webkit-transition: 400ms ease-in, background-color 300ms ease-out;
   transition: 400ms ease-in, background-color 300ms ease-out;
+}
+
+@media screen and (max-width: 960px) {
+  #interactComponent button::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 60px;
+    background-color: var(--color-lighter);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    -webkit-transition: 200ms ease-out;
+    transition: 200ms ease-out;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  #interactComponent button:active {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+
+#interactComponent button:active::before {
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  opacity: .4;
 }
 
 @media screen and (max-width: 960px) {
@@ -271,6 +335,40 @@
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 960px) and (max-width: 960px) {
+  #interactComponent button::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    background-color: var(--color-lighter);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    -webkit-transition: 200ms ease-out;
+    transition: 200ms ease-out;
+  }
+}
+
+@media screen and (max-width: 960px) and (min-width: 960px) {
+  #interactComponent button:active {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  #interactComponent button:active::before {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: .4;
   }
 }
 

@@ -1,0 +1,356 @@
+@import "mixins";
+
+#sideBar {
+    background-color: var(--color);
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    border-right: $objectBorder;
+    min-height: 100vh;
+    padding: 20px 40px 20px 20px;
+
+    @media screen and(max-height: 400px) {
+        padding: 10px 40px 10px 20px;
+    }
+    @media screen and(max-width: 350px) {
+        padding: 10px 20px 10px 20px;
+    }
+}
+
+.sideBar-child {
+    overflow: hidden;
+    box-sizing: border-box;
+
+    h3 {
+        font-family: 'baloo 2', segoe UI;
+        font-weight: 400;
+        font-size: 1.2em;
+        white-space: nowrap;
+        user-select: none;
+        margin-bottom: 10px;
+
+        @media screen and(max-height: 400px) {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+/*=======================
+        RECENTS
+    ======================*/
+
+#recentSearch {
+    list-style-type: circle;
+    margin: 0;
+    height: 5em;
+    font-size: 0.8em;
+
+    li {
+        margin: 5px 5px;
+    }
+}
+
+/*=======================
+        THEME
+    ======================*/
+
+// #themeSettings {
+
+// }
+
+#themeBox {
+    display: grid;
+    height: 120px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+
+    @media screen and(max-height: $tiny-screen) {
+        height: 80px;
+    }
+
+    @media screen and(max-height: 400px) {
+        height: 50px;
+        width: 200px;
+        max-width: 70vw;
+    }
+
+    label {
+        display: block;
+        padding: 3px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: 150ms ease-out;
+        border: solid 2px transparent;
+
+        &:hover {
+            border: solid 2px rgba(255, 255, 255, 0.425);
+        }
+
+        input {
+            display: none;
+        }
+
+        span {
+            visibility: hidden;
+        }
+
+        span {
+            @include circle(20px);
+            background-color: rgb(40, 170, 40);
+
+            @media screen and(max-height: 400px) {
+                @include circle(10px);
+            }
+
+            img {
+                height: 10px;
+                margin: auto;
+
+                @media screen and(max-height: 400px) {
+                    height: 5px;
+                }
+            }
+        }
+    }
+
+    label.active {
+        border: solid 2px rgba(255, 255, 255, 0.767);
+
+        span {
+            visibility: visible;
+        }
+    }
+
+    #red {
+        background-color: hsl(348, 70%, 40%);
+    }
+
+    #orange {
+        background-color: hsl(27, 78%, 42%);
+    }
+
+    #cyan {
+        background-color: hsl(147, 70%, 30%);
+    }
+
+    #purple {
+        background-color: hsl(300, 70%, 25%);
+    }
+
+    #blue {
+        background-color: hsl(204, 70%, 40%);
+    }
+
+    #dark {
+        background-color: #212121;
+    }
+}
+
+
+/*=======================
+        RATINGS
+    ======================*/
+
+#ratingBox {
+    font-size: .8em;
+    height: 80%;
+
+    #starsBox {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 10px;
+
+        @media screen and(max-height: 400px) {
+            margin-bottom: 5px;
+            padding: 0 50px;
+        }
+
+        button {
+            @include circle(30px);
+            background-color: transparent;
+            border-color: rgba(255, 255, 255, 0.055);
+
+            @media screen and(max-height: 400px) {
+                @include circle(25px);
+                background-color: transparent;
+                border-color: rgba(255, 255, 255, 0.055);
+            }
+
+            &:hover {
+                border-color: rgba(255, 255, 255, 0.966);
+            }
+
+            svg {
+                display: block;
+                height: 20px;
+                width: 20px;
+                fill: none;
+                stroke-width: 3px;
+                stroke: white;
+                margin: auto;
+                padding: 0;
+
+                @media screen and(max-height: 400px) {
+                    height: 12px;
+                    width: 12px;
+                }
+            }
+        }
+
+        button.checked {
+            svg {
+                fill: rgba(255, 255, 255, 0.932);
+                stroke: none;
+            }
+        }
+    }
+
+    form {
+        display: flex;
+
+        input {
+            all: unset;
+            width: calc(100% - 45px);
+            font-size: inherit;
+            display: block;
+            border: none;
+            color: inherit;
+            background-color: transparent;
+            border-bottom: $objectBorder;
+            border-color: rgba(255, 255, 255, 0.596);
+            transition: 400ms ease-in;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.596);
+            }
+
+            &+button {
+                margin-left: -20px;
+            }
+
+            &:focus {
+                border-color: rgba(255, 255, 255, 0.966);
+                margin-right: 10px;
+
+                &+button {
+                    margin-left: 0px;
+                    transform: rotate(1turn);
+                    background-color: white;
+                    border-color: transparent;
+
+                    img {
+                        filter: invert(0%) opacity(80%);
+                    }
+                }
+            }
+        }
+
+        button {
+            @include circle(35px);
+
+            border-color: white;
+            background-color: var(--color);
+            transition: 400ms ease-in;
+
+            img {
+                width: 15px;
+                margin: auto;
+                filter: invert(100%);
+
+                @media screen and(max-height: 400px) {
+                    width: 12px;
+                }
+            }
+
+            &:hover {
+                background-color: var(--color-lighter) !important;
+
+                img {
+                    filter: invert(100%) !important;
+                }
+            }
+        }
+    }
+}
+
+/*=======================
+        ABOUT
+    ======================*/
+
+#aboutSection {
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+            @include circle(30px);
+            border-color: white;
+            background-color: var(--color);
+
+
+            &:hover {
+                background-color: var(--color-lighter);
+                border-color: transparent;
+            }
+
+            img {
+                margin: auto;
+                width: 15px;
+            }
+        }
+
+        button.active {
+            background-color: white;
+
+            img {
+                filter: invert(100%) opacity(80%);
+            }
+        }
+    }
+}
+
+/*=======================
+        Side Bar Controller
+    ======================*/
+
+#sideBar-control.active {
+    right: -40px;
+    transform: rotate(0);
+
+    @media screen and(max-width: $small-screen) {
+        transform: rotate(180deg);
+        right: -20px;
+    }
+}
+
+#sideBar-control {
+    @include circle(60px);
+    align-self: center;
+    transform: rotate(180deg);
+    position: absolute;
+    top: calc(50vh - 30px);
+    right: -30px;
+
+    @media screen and(max-width: $small-screen) {
+        width: 40px;
+        height: 40px;
+        right: -30px;
+        transform: rotate(0);
+    }
+
+    &:hover {
+        background-color: var(--color-light);
+    }
+
+    img {
+        margin: auto;
+        display: block;
+        height: 18px;
+        user-select: none;
+
+        @media screen and(max-width: $small-screen) {
+            height: 16px;
+        }
+    }
+}

@@ -13,15 +13,13 @@ body {
   }
 }
 
-@media screen and (max-height: 450px) {
-  body {
-    overflow-y: scroll;
-    max-height: 450px;
-  }
-}
-
 body.sideBar-close {
   --sideBar-width: 0px;
+}
+
+body.sideBar-close #sideBar {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 
 @media screen and (max-width: 570px) {
@@ -31,15 +29,38 @@ body.sideBar-close {
   body.sideBar-close #main, body.sideBar-close #interactComponent {
     visibility: hidden;
   }
+  body.sideBar-close #sideBar {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@media screen and (max-width: 350px) {
+  body.sideBar-close {
+    --sideBar-width: 90vw;
+  }
 }
 
 #sideBar {
-  width: var(--sideBar-width);
+  width: 300px;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 4;
+}
+
+@media screen and (max-width: 570px) {
+  #sideBar {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #sideBar {
+    width: 90vw;
+  }
 }
 
 #sideBar-control {

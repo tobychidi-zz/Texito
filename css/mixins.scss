@@ -1,20 +1,50 @@
-
 /*=======================
         MIxins
     ======================*/
-    @mixin circle($size) {
-        box-sizing: border-box;
-        padding: 0;
-        background-color: var(--color-lighter);
-        height: $size;
-        width: $size;
-        border-radius: 50%;
-        border: $objectBorder;
-        display: grid;
-        place-content: center;
-        outline: none;
-        user-select: none;
+@mixin circle($size) {
+    box-sizing: border-box;
+    padding: 0;
+    background-color: var(--color-lighter);
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+    border: $objectBorder;
+    display: grid;
+    place-content: center;
+    outline: none;
+    user-select: none;
+    position: relative;
+    
+    @media screen and (max-width: $medium-screen) {
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            margin: auto;
+            height: $size;
+            width: $size;
+            background-color: var(--color-lighter);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: 200ms ease-out;
+        }
     }
+
+    &:active {
+        @media screen and (min-width: $medium-screen) {
+            transform: scale(.7);
+            transition: transform 200ms ease-out;
+        }
+
+        &::before {
+            transform: scale(2);
+            opacity: .4;
+        }
+    }
+
+
+}
 
 
 $objectBorder: solid 1px rgba(39, 39, 39, 0.116);

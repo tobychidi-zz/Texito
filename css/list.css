@@ -143,10 +143,42 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  position: relative;
   background: none;
   display: none;
   -webkit-transition: 100ms ease-out;
   transition: 100ms ease-out;
+}
+
+@media screen and (max-width: 960px) {
+  #main-listComponent ul button.listItem-close::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background-color: var(--color-lighter);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    -webkit-transition: 200ms ease-out;
+    transition: 200ms ease-out;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  #main-listComponent ul button.listItem-close:active {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+
+#main-listComponent ul button.listItem-close:active::before {
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  opacity: .4;
 }
 
 @media screen and (max-width: 960px) {
