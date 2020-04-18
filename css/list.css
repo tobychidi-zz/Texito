@@ -28,7 +28,7 @@
   #main-logoSpot {
     position: -webkit-sticky;
     position: sticky;
-    top: -5vh;
+    top: 0px;
     opacity: 1;
     width: 100%;
     z-index: 2;
@@ -155,8 +155,7 @@
     content: '';
     display: block;
     position: absolute;
-    top: 0;
-    left: 0;
+    margin: auto;
     height: 30px;
     width: 30px;
     background-color: var(--color-lighter);
@@ -172,6 +171,10 @@
   #main-listComponent ul button.listItem-close:active {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   }
 }
 

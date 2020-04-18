@@ -156,14 +156,15 @@ body.sideBar-close #sideBar {
   position: absolute;
   top: 0;
   left: var(--sideBar-width);
-  padding: 5vh 6vw;
+  padding: 0vh 6vw 5vh 4vw;
+  margin-top: 10px;
   z-index: 2;
 }
 
 @media screen and (max-width: 570px) {
   #main {
     overflow-y: auto;
-    padding: 12vh 6vw 5vh 6vw;
+    padding: 0 6vw 5vh 4vw;
   }
 }
 
@@ -853,7 +854,7 @@ body.sideBar-close #sideBar {
   #sideBar-control.active {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
-    right: -20px;
+    right: -25px;
   }
 }
 
@@ -922,7 +923,7 @@ body.sideBar-close #sideBar {
   #sideBar-control {
     width: 50px;
     height: 50px;
-    right: -30px;
+    right: -34px;
     -webkit-transform: rotate(0);
             transform: rotate(0);
   }
@@ -978,7 +979,7 @@ body.sideBar-close #sideBar {
   #main-logoSpot {
     position: -webkit-sticky;
     position: sticky;
-    top: -5vh;
+    top: 0px;
     opacity: 1;
     width: 100%;
     z-index: 2;

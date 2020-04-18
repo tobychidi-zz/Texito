@@ -676,7 +676,7 @@
   #sideBar-control.active {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
-    right: -20px;
+    right: -25px;
   }
 }
 
@@ -745,7 +745,7 @@
   #sideBar-control {
     width: 50px;
     height: 50px;
-    right: -30px;
+    right: -34px;
     -webkit-transform: rotate(0);
             transform: rotate(0);
   }
