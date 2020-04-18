@@ -920,8 +920,8 @@ body.sideBar-close #sideBar {
 
 @media screen and (max-width: 570px) {
   #sideBar-control {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     right: -30px;
     -webkit-transform: rotate(0);
             transform: rotate(0);

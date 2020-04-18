@@ -154,6 +154,10 @@
   #themeBox label span:active {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   }
 }
 
@@ -206,6 +210,10 @@
   #themeBox label span:active {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   }
 }
 
@@ -327,6 +335,10 @@
   #ratingBox #starsBox button:active {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   }
 }
 
@@ -381,6 +393,10 @@
   #ratingBox #starsBox button:active {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   }
 }
 
@@ -522,6 +538,10 @@
   #ratingBox form button:active {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   }
 }
 
@@ -611,6 +631,10 @@
   #aboutSection label button:active {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   }
 }
 
@@ -704,6 +728,10 @@
   #sideBar-control:active {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   }
 }
 
@@ -715,8 +743,8 @@
 
 @media screen and (max-width: 570px) {
   #sideBar-control {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     right: -30px;
     -webkit-transform: rotate(0);
             transform: rotate(0);
