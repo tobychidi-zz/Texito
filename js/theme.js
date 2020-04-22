@@ -1,6 +1,7 @@
 let Droot = document.querySelector(":root")
 let themeCheck = document.getElementsByClassName("themeCheck")
 let checkLabel = document.getElementsByClassName("checkLabel")
+let theme = localStorage.getItem('theme')
 
 function colorSet(myid) {
     let hue, sat, light;
@@ -41,6 +42,18 @@ function colorSet(myid) {
     Droot.style.setProperty('--hue', hue)
     Droot.style.setProperty('--light', light)
     Droot.style.setProperty('--sat', sat)
+
+    localStorage.setItem('theme', myid)
+}
+
+function checkStuff(myid) {
+    let check = document.querySelector(`label#${myid}>[type="radio"]`)
+    check.checked = true
+}
+if (theme) {
+    colorSet(theme)
+    checkStuff(theme)
+    setLabel()
 }
 
 function setLabel() {
@@ -59,5 +72,9 @@ for (let x = 0; x < themeCheck.length; x++) {
     el.onclick = () => {
         setLabel()
         colorSet(el.parentElement.id)
+        console.log(localStorage)
     }
 }
+
+
+console.log(localStorage)
