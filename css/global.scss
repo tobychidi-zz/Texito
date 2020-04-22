@@ -3,21 +3,21 @@
         Custom Properties
     ======================*/
 
-:root {
-    --hue: 348;
-    --sat: 70%;
-    --light: 40%;
-
-    --lighter: calc(10% + var(--light));
-    --lighterer: calc(10% + var(--lighter));
-    --lighterest: calc(10% + var(--lighterer));
-
-    --color: hsl(var(--hue), var(--sat), var(--light));
-    --color-light: hsl(var(--hue), var(--sat), var(--lighter));
-    --color-lighter: hsl(var(--hue), var(--sat), var(--lighterer));
-    --color-lightest: hsl(var(--hue), var(--sat), var(--lighterest));
-}
-
+    :root {
+        --hue: 348;
+        --sat: 70%;
+        --light: 40%;
+    
+        --lighter: calc(10% + var(--light));
+        --lighterer: calc(10% + var(--lighter));
+        --lighterest: calc(10% + var(--lighterer));
+    
+        --color: hsl(var(--hue), var(--sat), var(--light));
+        --color-light: hsl(var(--hue), var(--sat), var(--lighter));
+        --color-lighter: hsl(var(--hue), var(--sat), var(--lighterer));
+        --color-lightest: hsl(var(--hue), var(--sat), var(--lighterest));
+    }
+    
     
 /*=======================
         Global Resets
@@ -72,7 +72,6 @@ body{
         font-size: .8em;
     }
 }
-
 
 /*=======================
         Imports

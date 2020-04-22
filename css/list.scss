@@ -52,6 +52,7 @@
         list-style-type: none;
         padding: 0;
         width: 90%;
+        position: relative;
 
         li {
             height: 45px;
@@ -104,7 +105,7 @@
                 background-color: var(--color-lightest);
                 border-color: transparent;
 
-                img{
+                img {
                     filter: invert(100%);
                 }
             }
@@ -118,3 +119,30 @@
         }
     }
 }
+
+
+/*=======================
+        SVG STUFF
+    ======================*/
+    #introBox{
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+        #introguy,h3,p{
+            user-select: none;
+        }
+    }
+    #introguy{
+        width: 50vw;
+        opacity: .8;
+    }
+    #collar{
+        fill: var(--color-light);
+    }
+    #shirt{
+        fill: var(--color-lighter);
+    }

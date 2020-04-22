@@ -1024,6 +1024,7 @@ body.sideBar-close #sideBar {
   list-style-type: none;
   padding: 0;
   width: 90%;
+  position: relative;
   /*=======================
     CLOSE BUTTONS  
     ======================*/
@@ -1163,6 +1164,39 @@ body.sideBar-close #sideBar {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+/*=======================
+        SVG STUFF
+    ======================*/
+#introBox {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#introBox #introguy, #introBox h3, #introBox p {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#introguy {
+  width: 50vw;
+  opacity: .8;
+}
+
+#collar {
+  fill: var(--color-light);
+}
+
+#shirt {
+  fill: var(--color-lighter);
 }
 
 /*=======================
