@@ -134,8 +134,7 @@
     content: '';
     display: block;
     position: absolute;
-    top: 0;
-    left: 0;
+    margin: auto;
     height: 40px;
     width: 40px;
     background-color: var(--color-lighter);
@@ -151,6 +150,10 @@
   #aboutTexito button:active {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   }
 }
 
@@ -291,8 +294,7 @@
     content: '';
     display: block;
     position: absolute;
-    top: 0;
-    left: 0;
+    margin: auto;
     height: 60px;
     width: 60px;
     background-color: var(--color-lighter);
@@ -308,6 +310,10 @@
   #interactComponent button:active {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   }
 }
 
@@ -344,8 +350,7 @@
     content: '';
     display: block;
     position: absolute;
-    top: 0;
-    left: 0;
+    margin: auto;
     height: 50px;
     width: 50px;
     background-color: var(--color-lighter);
@@ -361,6 +366,10 @@
   #interactComponent button:active {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   }
 }
 
