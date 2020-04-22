@@ -43,17 +43,15 @@ function colorSet(myid) {
     Droot.style.setProperty('--light', light)
     Droot.style.setProperty('--sat', sat)
 
+    /*=========================
+        STORES THE THEME
+    ========================*/
     localStorage.setItem('theme', myid)
 }
 
 function checkStuff(myid) {
     let check = document.querySelector(`label#${myid}>[type="radio"]`)
     check.checked = true
-}
-if (theme) {
-    colorSet(theme)
-    checkStuff(theme)
-    setLabel()
 }
 
 function setLabel() {
@@ -67,6 +65,15 @@ function setLabel() {
     }
 }
 
+/*=========================
+        SETS STORED THEME
+    ========================*/
+if (theme) {
+    colorSet(theme)
+    checkStuff(theme)
+    setLabel()
+}
+
 for (let x = 0; x < themeCheck.length; x++) {
     const el = themeCheck[x];
     el.onclick = () => {
@@ -75,6 +82,3 @@ for (let x = 0; x < themeCheck.length; x++) {
         console.log(localStorage)
     }
 }
-
-
-console.log(localStorage)
