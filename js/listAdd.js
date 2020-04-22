@@ -15,7 +15,6 @@ function alertUser(set) {
 }
 
 function getLine() {
-    console.log(inputReady)
     if (inputReady == true) {
         line = textInput.value
         if (line != false) {
@@ -40,7 +39,6 @@ function createList() {
     };
     setUL = true
 }
-
 
 textButton.onclick = () => {
     getLine()

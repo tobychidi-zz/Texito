@@ -1,7 +1,6 @@
 let Droot = document.querySelector(":root")
 let themeCheck = document.getElementsByClassName("themeCheck")
 let checkLabel = document.getElementsByClassName("checkLabel")
-console.log(Droot)
 
 function colorSet(myid) {
     let hue, sat, light;
